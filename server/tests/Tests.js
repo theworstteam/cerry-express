@@ -11,7 +11,7 @@ describe("Cerry Express tests", function() {
       console.log("Created Item with name Apple weigh 0.5 .");
     });
 
-    it("Item name should be apple", function() {
+    it("Item name should be apple.", function() {
       if (apple.getName() !== "Apple") {
         throw new Error("Item is not apple");
       }
