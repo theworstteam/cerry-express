@@ -6,7 +6,7 @@ var router = express.Router();
 
 //Get all parcels.
 // /api/delivery/parcels
-router.get("/parcels/", async (req, res) => {
+router.get("/parcel/", async (req, res) => {
     const posts = await loadData();
     res.send(await posts.find({}).toArray());
   });
