@@ -10,21 +10,21 @@ class Item {
   /**
    * Return name of the item.
    */
-  getName(){
-      return this.itemName;
+  getName() {
+    return this.itemName;
   }
 
   /**
    * Return weight of the item.
    */
-  getWeight(){
-      return this.weight;
+  getWeight() {
+    return this.weight;
   }
 
   /**
    * Return string of Item in format of Item name: foo, Item weight: bar
    */
-  toString(){
+  toString() {
     return `Item name: ${this.itemName}, Item weight: ${this.weight}`;
   }
 }

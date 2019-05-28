@@ -1,31 +1,29 @@
 import React, { Component } from "react";
-import axios from "axios";
+import './App.css';
+import Navbar from './components/Navbar';
+import {Route, Switch} from 'react-router-dom';
+import Home from "./pages/Home"
+import Parcels from "./pages/Parcels"
+import Branches from "./pages/Branches"
+import Location from "./pages/Location"
+import Profits from "./pages/Profits"
+import Error from "./pages/Error"
 
 class App extends Component {
-  state = {
-    data: [],
-    intervalIsSet: false
-  };
-
-   getData = () => {
-    return new Promise(async (resolve,reject) => {
-        try{
-            const res = await axios.get("http://localhost:5000/api/delivery/parcels");
-            this.data = res.data
-            resolve(
-                this.data.map(element => ({
-                    ...element,
-                }))
-                );
-                console.log(this.data)
-            }catch(err){
-                reject(err);
-            }
-        });
-    }
-
   render() {
-    return <div><button onClick = {this.getData}></button></div>;
+    return (
+      <>
+        <Navbar/>
+        <Switch>
+          <Route exact path="/" component={Home}/>
+          <Route exact path="/parcels/" component={Parcels}/>
+          <Route exact path="/branches/" component={Branches}/>
+          <Route exact path="/location/" component={Location}/>
+          <Route exact path="/profits/" component={Profits}/>
+          <Route component={Error} />
+        </Switch>
+      </>
+    );
   }
 }
 
