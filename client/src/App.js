@@ -7,14 +7,6 @@ class App extends Component {
     intervalIsSet: false
   };
 
-  // componentDidMount() {
-  //   this.getDataFromDb();
-  //   if (!this.state.intervalIsSet) {
-  //     let interval = setInterval(this.getDataFromDb, 1500);
-  //     this.setState({ intervalIsSet: interval });
-  //   }
-  // }
-
    getData = () => {
     return new Promise(async (resolve,reject) => {
         try{
@@ -31,19 +23,6 @@ class App extends Component {
             }
         });
     }
-
-  // componentWillUnmount() {
-  //   if (this.state.intervalIsSet) {
-  //     clearInterval(this.state.intervalIsSet);
-  //     this.setState({ intervalIsSet: null });
-  //   }
-  // }
-  // getDataFromDb = () => {
-  //   fetch("http://localhost:5000/api/delivery/parcels")
-  //     .then(data => data.json())
-  //     .then(res => this.setState({ data: res.data }));
-  //   console.log(this.state.data);
-  // };
 
   render() {
     return <div><button onClick = {this.getData}></button></div>;
