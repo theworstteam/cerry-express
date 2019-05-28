@@ -2,6 +2,7 @@ require("dotenv").config();
 
 const express = require("express");
 const mongodb = require("mongodb");
+const Olap = require("../backend/Olap.js");
 const router = express.Router();
 var facts = "";
 
@@ -13,6 +14,13 @@ router.get("/data/:data", async (req, res) => {
     res.send(await facts);
     facts = await facts;
     console.log(facts);
+  });
+
+router.get("/test", async (req, res) => {
+  console.log("route get /test")
+    const ol = new Olap();
+    // res.send(ol.getOlap().length);
+    console.log(ol.getOlap().length);
   });
 
 // router.get("/data/:data", async (req, res) => {
