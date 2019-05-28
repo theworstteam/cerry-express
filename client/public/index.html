@@ -10,13 +10,20 @@
 </head>
 <body>
     <div class="container">
-        <canvas id="mychart"></canvas>
+      <div class="row">
+        <div class="col">
+            <canvas id="chart1"></canvas>
+        </div>
+        <div class="col">
+            <canvas id="chart2"></canvas>        
+        </div>
+      </div>
     </div>
 
     <script>
-        let mychart = document.getElementById('mychart').getContext('2d');
+        let mychart1 = document.getElementById('chart1').getContext('2d');
     
-        let massPopchart = new Chart(mychart, {
+        let massPopchart = new Chart(mychart1, {
            type: 'pie', //bar, horizontal, pie, line
            data:{
                 labels:['EMS','REGISTER'],
@@ -40,13 +47,46 @@
                title:{
                    display:true,
                    text:'Amount of people using type of parcel',
-                   fontSize: 26
+                   fontSize: 24
                },
-               legend:{
-                   position: 'left',
-               }
+ 
            } 
         });
+        
+        let mychart2 = document.getElementById('chart2').getContext('2d');
+    
+        let massWeightchart = new Chart(mychart2, {
+           type: 'bar', //bar, horizontal, pie, line
+           data:{
+                labels:['January','February','March','April','May','June','July','August','September','October','November','December'],
+                datasets:[{
+                    label:'average weight of parcel per month',
+                    data:[
+                        40,
+                        60 
+                    ],
+                    backgroundColor: 'rgb(0, 99, 132)'
+                    ,
+                    data:[
+                      500,100,150,200,100,0,150,180,350,450,250,600
+                    ],
+                    borderWidth:1,
+                    borderColor:'grey',
+                    hoverBorderWidth:2,
+                    hoverBorderColor:'black'
+                }]
+           },
+           options:{
+               title:{
+                   display:true,
+                   text:'Amount of people using type of parcel',
+                   fontSize: 24
+               },
+ 
+           } 
+        });
+
+        
         
 
     </script>
