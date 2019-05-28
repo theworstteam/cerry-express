@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { FaAlignRight } from "react-icons/fa";
+import logo from "../images/logo.png";
 import { IoMdCube, IoIosHome } from "react-icons/io";
 import { Link } from "react-router-dom";
 
@@ -16,7 +17,9 @@ export default class Navbar extends Component {
 			<nav className='navbar'>
 				<div className='nav-center'>
 					<div className='nav-header'>
-						<Link to='/'>Curry Express</Link>
+						<Link to='/'>
+							<img src={logo} alt='Beach Resort' />
+						</Link>
 						<button
 							type='button'
 							className='nav-btn'
