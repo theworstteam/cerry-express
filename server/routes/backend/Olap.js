@@ -3,6 +3,7 @@ const Parcel = require("./Parcel");
 const Branch = require("./Branch");
 const Location = require("./Location");
 const TranscationDate = require("./TransactionDate");
+const Service = require("./Service");
 const Data = require("./Data");
 const d = new Data();
 
@@ -177,6 +178,50 @@ class Olap {
       REG: reg
     };
     return data;
+  }
+
+  getAVGWeightPerMonth(month, year) {
+    var weight = 0;
+    var count = 0;
+    for (let i = 0; i < this.olap.length; i++) {
+      var trans = this.olap[i];
+      var parcel = trans.getData()[0];
+      var date = trans.getData()[1];
+      if (date.getMonth() === month) {
+        count++;
+        weight += parcel.getParcelWeight();
+      }
+    }
+    var data = {
+      Month: month,
+      Year: year,
+      Average: weight / count
+    };
+    return data;
+  }
+
+  getStationServices() {
+    var temp = [];
+    for (let i = 0; i < this.olap.length; i++) {
+      var trans = this.olap[i];
+      var branch = trans.getData()[2];
+      var station = branch.getBranchName();
+      for (let j = 0; j < temp.length; j++) {
+        if (j === 0) {
+          console.log("first push "+station);
+          temp.push(new Service(station, 1));
+        } else {
+          if (temp[j].getStation() === station) {
+              console.log(temp[j].getStation()+ " = "+station)
+            temp[j].setAmount(temp[j].getAmount() + 1);
+          } else {
+            console.log("else push "+station);
+            temp.push(new Service(station, 1));
+          }
+        }
+      }
+    }
+    return temp;
   }
 }
 

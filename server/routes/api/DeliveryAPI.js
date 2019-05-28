@@ -17,17 +17,31 @@ router.get("/data/:data", async (req, res) => {
   console.log(facts);
 });
 
-// Get average send Type.
+// Get requested average send Type.
 // /api/delivery/average/send-type
 router.get("/average/send-type", async (req, res) => {
   const data = olap.getTotalSendType();
   res.send(data);
 });
 
-// Get average send Type.
-// /api/delivery/average/send-type
+// Get average send Type with requested month.
+// /api/delivery/average/send-type/<month>
 router.get("/average/send-type/:month", async (req, res) => {
   const data = olap.getTotalSendType(req.params.month);
+  res.send(data);
+});
+
+// Get average weight with requested month.
+// /api/delivery/average/weight/<month>/<year>
+router.get("/average/weight/:month/:year", async (req, res) => {
+  const data = olap.getAVGWeightPerMonth(req.params.month,req.params.year);
+  res.send(data);
+});
+
+// Get average service per station.
+// /api/delivery/average/service
+router.get("/average/service", async (req, res) => {
+  const data = olap.getStationServices();
   res.send(data);
 });
 
@@ -37,6 +51,8 @@ router.get("/test", async (req, res) => {
   // res.send(ol.getOlap().length);
   console.log(ol.getOlap().length);
 });
+
+
 
 // router.get("/data/:data", async (req, res) => {
 //     const data = await loadData(req.params.data);
