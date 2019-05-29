@@ -8,6 +8,8 @@ import Branches from "./pages/Branches"
 import Location from "./pages/Location"
 import Profits from "./pages/Profits"
 import Error from "./pages/Error"
+import Piechart from "./components/Piechart"
+
 
 class App extends Component {
   render() {
