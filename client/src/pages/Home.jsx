@@ -1,13 +1,11 @@
 import React from "react";
-import Banner from "../components/Banner";
-import Month from "../components/PieChartList";
+import PieChartContainer from "../components/PieChartContainer";
 
 
 export default function Home() {
 	return (
 		<>
-		<Banner/>
-		<Month/>
+			<PieChartContainer/>
 		</>
 	);
 }

@@ -5,36 +5,24 @@ const ParcelContext = React.createContext();
 
 class ParcelProvider extends Component {
     state={
-        data: [],
-        ems: [],
+        monthly_data: [],
         loading: true,
     }
-
     componentDidMount(){
-        
+        this.getData()
     }
 
     getData = () => {
-    return new Promise(async (resolve,reject) => {
-        try{
-            const res = await axios.get("http://localhost:5000/api/delivery/parcels");
-            this.data = res.data
-            resolve(
-                this.data.map(element => ({
-                    ...element,
-                }))
-                );
-            }catch(err){
-                reject(err);
-            }
-        });
+    fetch('http://localhost:5000/api/delivery/average/send-type/March')
+      .then((data) => data.json())
+      .then((res) => this.setState({ monthly_data: res, loading:false}));
     }
 
     render() {
         return (
-        <ParcelProvider.Provider value={{...this.state,getData:this.getData}}>
+        <ParcelContext.Provider value={this.state}>
             {this.props.children}
-        </ParcelProvider.Provider>
+        </ParcelContext.Provider>
         )
     }
     }

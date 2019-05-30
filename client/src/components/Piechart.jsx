@@ -1,16 +1,15 @@
 import React,{Component} from 'react'
 import {Pie} from 'react-chartjs-2';
-
-
+import Title from './Title'
 
 class PieChart extends Component{
 
 	constructor(props){
 		super(props)
 		this.state = {
-			labels: ['EMS','REG'],
+			labels: [this.props.name,this.props.name],
 			datasets:[{
-				data: [40,60],
+				data: [50,50],
 				backgroundColor: ['red','blue']
 			}]
 		}
@@ -19,7 +18,7 @@ class PieChart extends Component{
 	render(){
 		return(
 			<div>
-				<h3>Amount of parcel type</h3>
+				<Title name = "EMS / Register"/>	
 				<Pie
 					data={{
 						labels:this.state.labels,

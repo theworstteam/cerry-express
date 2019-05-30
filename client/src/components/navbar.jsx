@@ -18,7 +18,7 @@ export default class Navbar extends Component {
 				<div className='nav-center'>
 					<div className='nav-header'>
 						<Link to='/'>
-							<img alt='Cerry Express' />
+							Cerry Express
 						</Link>
 						<button
 							type='button'
