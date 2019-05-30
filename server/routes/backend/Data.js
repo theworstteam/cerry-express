@@ -235,9 +235,9 @@ const branch = [
   { _id: "103", branch: "Chonburi" },
   { _id: "105", branch: "Kanchanaburi" },
   { _id: "106", branch: "Yala" },
-  { _id: "104", name: "Nonthaburi" },
-  { _id: "107", name: "Krabi" },
-  { _id: "108", name: "Tak" }
+  { _id: "104", branch: "Nonthaburi" },
+  { _id: "107", branch: "Krabi" },
+  { _id: "108", branch: "Tak" }
 ];
 
 const date = [

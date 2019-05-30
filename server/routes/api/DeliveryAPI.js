@@ -32,18 +32,18 @@ router.get("/average/send-type/:month", async (req, res) => {
 });
 
 // Get average weight with requested month.
-// /api/delivery/average/weight/<month>/<year>
+// /api/delivery/average/weight/<month>
 router.get("/average/weight/:month", async (req, res) => {
   const data = sql.getAVGWeightPerMonth(req.params.month);
   res.send(data);
 });
 
 // Get average service per station.
-// /api/delivery/average/service
-// router.get("/average/service", async (req, res) => {
-//   const data = olap.getStationServices();
-//   res.send(data);
-// });
+// /api/delivery/average/service/<month>
+router.get("/average/service/:month", async (req, res) => {
+  const data = sql.getServiceUsedPerMonth(req.params.month);
+  res.send(data);
+});
 
 router.get("/test", async (req, res) => {
   console.log("route get /test");

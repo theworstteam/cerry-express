@@ -171,30 +171,57 @@ class SQLCover {
     return data;
   }
 
-  // getStationServices() {
-  //   console.log("enter getStation");
-  //   var temp = [];
-  //   for (let i = 0; i < this.olap.length; i++) {
-  //     var trans = this.olap[i];
-  //     var branch = trans.getData()[2];
-  //     var station = branch.getBranchName();
-  //     for (let j = 0; j < temp.length; j++) {
-  //       if (j === 0) {
-  //         console.log("first push " + station);
-  //         temp.push(new Service(station, 1));
-  //       } else {
-  //         if (temp[j].getStation() === station) {
-  //           console.log(temp[j].getStation() + " = " + station);
-  //           temp[j].setAmount(temp[j].getAmount() + 1);
-  //         } else {
-  //           console.log("else push " + station);
-  //           temp.push(new Service(station, 1));
-  //         }
-  //       }
-  //     }
-  //   }
-  //   return temp;
-  // }
+  getServiceUsedPerMonth(month) {
+    var service = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    for (let i = 0; i < this.fact_table.length; i++) {
+      var trans = this.fact_table[i];
+      var branch_id = trans.getBranchID();
+      var date_id = trans.getDateID();
+      var date;
+      for (let k = 0; k < this.date_table.length; k++) {
+        var tempDate = this.date_table[k];
+        if (date_id === tempDate.getID()) {
+          date = tempDate;
+          break;
+        }
+      }
+      if (date.getMonth() === month) {
+        if (branch_id === "100") {
+          service[0] = 1 + service[0];
+        } else if (branch_id === "101") {
+          service[1] = 1 + service[1];
+        } else if (branch_id === "102") {
+          service[2] = 1 + service[2];
+        } else if (branch_id === "103") {
+          service[3] = 1 + service[3];
+        } else if (branch_id === "104") {
+          service[4] = 1 + service[4];
+        } else if (branch_id === "105") {
+          service[5] = 1 + service[5];
+        } else if (branch_id === "106") {
+          service[6] = 1 + service[6];
+        } else if (branch_id === "107") {
+          service[7] = 1 + service[7];
+        } else if (branch_id === "108") {
+          service[8] = 1 + service[8];
+        }
+      }
+    }
+    const data = {
+      Month: month,
+      Year: 2019,
+      ChiangRai: service[0],
+      Bangkok: service[1],
+      Nan: service[2],
+      Chonburi: service[3],
+      Kanchanaburi: service[4],
+      Yala: service[5],
+      Nonthaburi: service[6],
+      Krabi: service[7],
+      Tak: service[8]
+    };
+    return data;
+  }
 }
 
 module.exports = SQLCover;
