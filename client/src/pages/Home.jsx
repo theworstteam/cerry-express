@@ -1,11 +1,12 @@
 import React from "react";
-import Loading from '../components/Loading'
+import Banner from "../components/Banner";
+import Month from "../components/PieChartList";
 
 export default function Home() {
 	return (
 		<>
-		hello from home
-		<Loading name= "home"/>
+		<Banner/>
+		<Month/>
 		</>
 	);
 }

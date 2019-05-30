@@ -3,9 +3,10 @@ import axios from "axios";
 
 const ParcelContext = React.createContext();
 
-class Context extends Component {
+class ParcelProvider extends Component {
     state={
         data: [],
+        ems: [],
         loading: true,
     }
 
@@ -31,13 +32,13 @@ class Context extends Component {
 
     render() {
         return (
-        <Context.Provider value=''>
+        <ParcelProvider.Provider value={{...this.state,getData:this.getData}}>
             {this.props.children}
-        </Context.Provider>
+        </ParcelProvider.Provider>
         )
     }
     }
 
 const ParcelConsumer = ParcelContext.Consumer;
 
-export {ParcelContext, ParcelConsumer , Context}
+export {ParcelContext, ParcelConsumer , ParcelProvider}
