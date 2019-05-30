@@ -8,7 +8,6 @@ const d = new Data();
 
 class SQLCover {
   constructor() {
-    console.log("enter constructor");
     this.fact_table = this.setFact();
     this.parcel_table = this.setParcel();
     this.date_table = this.setDate();
@@ -17,7 +16,6 @@ class SQLCover {
   }
 
   setParcel() {
-    console.log("enter set parcel");
     var parcels = [];
     for (var k = 0; k < d.getParcel().length; k++) {
       var p_table = d.getParcel()[k];
@@ -33,7 +31,6 @@ class SQLCover {
   }
 
   setBranch() {
-    console.log("enter set branch");
     var branches = [];
     for (let z = 0; z < d.getBranch().length; z++) {
       var b_table = d.getBranch()[z];
@@ -46,7 +43,6 @@ class SQLCover {
   }
 
   setDate() {
-    console.log("enter set date");
     var dates = [];
     for (let h = 0; h < d.getDate().length; h++) {
       var d_table = d.getDate()[h];
@@ -62,7 +58,6 @@ class SQLCover {
   }
 
   setLocation() {
-    console.log("enter set location");
     var locations = [];
     for (let o = 0; o < d.getLocation().length; o++) {
       var l_table = d.getLocation()[o];
@@ -75,7 +70,6 @@ class SQLCover {
   }
 
   setFact() {
-    console.log("enter set fact");
     var temp_fact = [];
     for (var i = 0; i < d.getFact().length; i++) {
       var temp_table = d.getFact()[i];
@@ -220,8 +214,56 @@ class SQLCover {
     return data;
   }
 
-  getLocationUsedPerMonth(month){
-
+  getLocationSentPerMonth(month) {
+    var bkk = 0;
+    var cmi = 0;
+    var nbi = 0;
+    var pkt = 0;
+    var sti = 0;
+    var kbi = 0;
+    var tak = 0;
+    var stn = 0;
+    var pre = 0;
+    for (let i = 0; i < this.fact_table.length; i++) {
+      var trans = this.fact_table[i];
+      var location = trans.getLocationID();
+      var date = this.getDateByID(trans.getDateID());
+      if (date.getMonth() === month) {
+        if (location === "BKK") {
+          bkk++;
+        } else if (location === "CMI") {
+          cmi++;
+        } else if (location === "NBI") {
+          nbi++;
+        } else if (location === "PKT") {
+          pkt++;
+        } else if (location === "STI") {
+          sti++;
+        } else if (location === "KBI") {
+          kbi++;
+        } else if (location === "TAK") {
+          tak++;
+        } else if (location === "STN") {
+          stn++;
+        } else if (location === "PRE") {
+          pre++;
+        }
+      }
+    }
+    const data = {
+      Month: month,
+      Year: 2019,
+      BKK: bkk,
+      CMI: cmi,
+      NBI: nbi,
+      PKT: pkt,
+      STI: sti,
+      KBI: kbi,
+      TAK: tak,
+      STN: stn,
+      PRE: pre
+    };
+    return data;
   }
 }
 

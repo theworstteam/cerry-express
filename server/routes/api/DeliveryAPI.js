@@ -17,13 +17,6 @@ router.get("/data/:data", async (req, res) => {
   console.log(facts);
 });
 
-// Get requested average send Type.
-// /api/delivery/average/send-type
-// router.get("/average/send-type", async (req, res) => {
-//   const data = sql.getTotalSendType();
-//   res.send(data);
-// });
-
 // Get average send Type with requested month.
 // /api/delivery/average/send-type/<month>
 router.get("/average/send-type/:month", async (req, res) => {
@@ -45,19 +38,12 @@ router.get("/average/service/:month", async (req, res) => {
   res.send(data);
 });
 
-router.get("/test", async (req, res) => {
-  console.log("route get /test");
-  const ol = new Olap();
-  // res.send(ol.getOlap().length);
-  console.log(ol.getOlap().length);
+// Get average location sent per station.
+// /api/delivery/average/location/<month>
+router.get("/average/location/:month", async (req, res) => {
+  const data = sql.getLocationSentPerMonth(req.params.month);
+  res.send(data);
 });
-
-
-
-// router.get("/data/:data", async (req, res) => {
-//     const data = await loadData(req.params.data);
-//     res.send(await data.find({}).toArray());
-//   });
 
 //Open connection with the database, function returns client for further interaction.
 async function loadData(collection) {
