@@ -3,7 +3,6 @@ const Parcel = require("./Parcel");
 const Branch = require("./Branch");
 const Location = require("./Location");
 const TranscationDate = require("./TransactionDate");
-const Service = require("./Service");
 const Data = require("./Data");
 const d = new Data();
 
@@ -97,29 +96,49 @@ class SQLCover {
     return temp_fact;
   }
 
+  getParcelByID(id) {
+    for (let j = 0; j < this.parcel_table.length; j++) {
+      var tempParcel = this.parcel_table[j];
+      if (id === tempParcel.getParcelID()) {
+        return tempParcel;
+      }
+    }
+  }
+
+  getDateByID(id) {
+    for (let j = 0; j < this.date_table.length; j++) {
+      var tempDate = this.date_table[j];
+      if (id === tempDate.getID()) {
+        return tempDate;
+      }
+    }
+  }
+
+  getBranchByID(id) {
+    for (let j = 0; j < this.branch_table.length; j++) {
+      var tempBranch = this.branch_table[j];
+      if (id === tempBranch.getBranchID()) {
+        return tempBranch;
+      }
+    }
+  }
+
+  getLocationByID(id) {
+    for (let j = 0; j < this.location_table.length; j++) {
+      var tempLocation = this.location_table[j];
+      if (id === tempLocation.getLocationID()) {
+        return tempLocation;
+      }
+    }
+  }
+
   getTotalSendType(month) {
     var ems = 0;
     var reg = 0;
     for (let i = 0; i < this.fact_table.length; i++) {
       var trans = this.fact_table[i];
-      var parcel_id = trans.getParcelID();
-      var date_id = trans.getDateID();
-      var parcel;
-      var date;
-      for (let j = 0; j < this.parcel_table.length; j++) {
-        var tempParcel = this.parcel_table[j];
-        if (parcel_id === tempParcel.getParcelID()) {
-          parcel = tempParcel;
-          break;
-        }
-      }
-      for (let k = 0; k < this.date_table.length; k++) {
-        var tempDate = this.date_table[k];
-        if (date_id === tempDate.getID()) {
-          date = tempDate;
-          break;
-        }
-      }
+      var parcel = this.getParcelByID(trans.getParcelID());
+      var date = this.getDateByID(trans.getDateID());
       if (date.getMonth() === month) {
         if (parcel.getSendType() === "EMS") {
           ems++;
@@ -142,22 +161,8 @@ class SQLCover {
     var count = 0;
     for (let i = 0; i < this.fact_table.length; i++) {
       var trans = this.fact_table[i];
-      var parcel = trans.getParcelID();
-      var date = trans.getDateID();
-      for (let j = 0; j < this.parcel_table.length; j++) {
-        var tempParcel = this.parcel_table[j];
-        if (parcel === tempParcel.getParcelID()) {
-          parcel = tempParcel;
-          break;
-        }
-      }
-      for (let k = 0; k < this.date_table.length; k++) {
-        var tempDate = this.date_table[k];
-        if (date === tempDate.getID()) {
-          date = tempDate;
-          break;
-        }
-      }
+      var parcel = getParcelByID(trans.getParcelID());
+      var date = getDateByID(trans.getDateID());
       if (date.getMonth() === month) {
         weight += parcel.getParcelWeight();
         count++;
@@ -176,15 +181,7 @@ class SQLCover {
     for (let i = 0; i < this.fact_table.length; i++) {
       var trans = this.fact_table[i];
       var branch_id = trans.getBranchID();
-      var date_id = trans.getDateID();
-      var date;
-      for (let k = 0; k < this.date_table.length; k++) {
-        var tempDate = this.date_table[k];
-        if (date_id === tempDate.getID()) {
-          date = tempDate;
-          break;
-        }
-      }
+      var date = this.getDateByID(trans.getDateID());
       if (date.getMonth() === month) {
         if (branch_id === "100") {
           service[0] = 1 + service[0];
@@ -221,6 +218,10 @@ class SQLCover {
       Tak: service[8]
     };
     return data;
+  }
+
+  getLocationUsedPerMonth(month){
+
   }
 }
 
