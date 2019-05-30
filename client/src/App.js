@@ -9,6 +9,7 @@ import Location from "./pages/Location"
 import Profits from "./pages/Profits"
 import Error from "./pages/Error"
 
+
 class App extends Component {
   render() {
     return (
