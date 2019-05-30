@@ -6,6 +6,7 @@ import Home from "./pages/Home"
 import Parcels from "./pages/Parcels"
 import Error from "./pages/Error"
 
+
 class App extends Component {
   render() {
     return (
