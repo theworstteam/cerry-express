@@ -1,30 +1,78 @@
 require("dotenv").config();
 
-var express = require("express");
-var mongodb = require("mongodb");
-var router = express.Router();
+const express = require("express");
+const mongodb = require("mongodb");
+const SQLCover = require("../backend/SQLCover");
+const sql = new SQLCover();
+const router = express.Router();
+var facts = "";
 
-//Get all parcels.
-// /api/delivery/parcels
-router.get("/parcel/", async (req, res) => {
-    const posts = await loadData();
-    res.send(await posts.find({}).toArray());
-  });
+//Get requested data.
+// /api/delivery/data/<collection-name>
+router.get("/data/:data", async (req, res) => {
+  const data = await loadData(req.params.data);
+  facts = data.find({}).toArray();
+  res.send(await facts);
+  facts = await facts;
+  console.log(facts);
+});
+
+// Get requested average send Type.
+// /api/delivery/average/send-type
+// router.get("/average/send-type", async (req, res) => {
+//   const data = sql.getTotalSendType();
+//   res.send(data);
+// });
+
+// Get average send Type with requested month.
+// /api/delivery/average/send-type/<month>
+router.get("/average/send-type/:month", async (req, res) => {
+  const data = sql.getTotalSendType(req.params.month);
+  res.send(data);
+});
+
+// Get average weight with requested month.
+// /api/delivery/average/weight/<month>/<year>
+router.get("/average/weight/:month", async (req, res) => {
+  const data = sql.getAVGWeightPerMonth(req.params.month);
+  res.send(data);
+});
+
+// Get average service per station.
+// /api/delivery/average/service
+// router.get("/average/service", async (req, res) => {
+//   const data = olap.getStationServices();
+//   res.send(data);
+// });
+
+router.get("/test", async (req, res) => {
+  console.log("route get /test");
+  const ol = new Olap();
+  // res.send(ol.getOlap().length);
+  console.log(ol.getOlap().length);
+});
+
+
+
+// router.get("/data/:data", async (req, res) => {
+//     const data = await loadData(req.params.data);
+//     res.send(await data.find({}).toArray());
+//   });
 
 //Open connection with the database, function returns client for further interaction.
-async function loadData() {
-    const client = await mongodb.MongoClient.connect(
-      "mongodb+srv://" +
-        process.env.DB_USER +
-        ":" +
-        process.env.DB_PASS +
-        process.env.DB_URL,
-      {
-        useNewUrlParser: true
-      }
-    );
-  
-    return client.db(process.env.DB_NAME).collection(process.env.DB_COLLECTION);
-  }
-  
-  module.exports = router;
+async function loadData(collection) {
+  const client = await mongodb.MongoClient.connect(
+    "mongodb+srv://" +
+      process.env.DB_USER +
+      ":" +
+      process.env.DB_PASS +
+      process.env.DB_URL,
+    {
+      useNewUrlParser: true
+    }
+  );
+
+  return client.db(process.env.DB_NAME).collection(collection);
+}
+
+module.exports = router;
