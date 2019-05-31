@@ -1,7 +1,6 @@
 import React from 'react'
 import { ParcelConsumer } from '../context';
-import PieChartList from './Piechart'
-import Title from './Title'
+import PieChartList from './PieChartList'
 import Loading from './Loading';
 
 export default function PieChartContainer() {
@@ -12,7 +11,7 @@ export default function PieChartContainer() {
 					if (loading) {
 						return <Loading name="Pie Chart"/>;
 					}
-					return <PieChartList />;
+					return <PieChartList charts={monthly_data}/>;
 				}}
 			</ParcelConsumer>
 		);
