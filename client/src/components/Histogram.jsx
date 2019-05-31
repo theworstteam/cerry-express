@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Bar } from "react-chartjs-2";
 import Title from "./Title";
-import { exists } from "fs";
 
 class Histogram extends Component {
 	constructor(props) {
@@ -30,33 +29,14 @@ class Histogram extends Component {
 			],
 		};
 	}
-	componentWillMount() {
-        // const months = histogram.map(item => item.Average);
-        // console.log(months);
-        // var {histogram} = this.props
-        // if(histogram instanceof Array){
-        //     console.log("true");
-        //     if(histogram.length===0){
-        //         console.log("true");
-        //         console.log(histogram);
-        //         console.log([1,1,2]);
-        //     }
-        // }
-    }
-    
-    componentDidMount(){
-        // var { histogram } = this.props;
-		// 		if (histogram instanceof Array) {
-		// 			console.log("true");
-		// 			if (histogram.length === 0) {
-		// 				console.log("true");
-		// 				console.log(histogram);
-		// 			}
-		// 		}
-    }
 
+	componentDidUpdate() {
+        var { histogram } = this.props;
+        const avg = histogram.map(item => item.Average);
+        this.state.datasets.data = avg
+
+	}
 	render() {
-        var { histogram } = this.props;  
 		return (
 			<div>
 				<Title name='Histrogram' />

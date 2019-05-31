@@ -18,7 +18,7 @@ export default class Navbar extends Component {
 				<div className='nav-center'>
 					<div className='nav-header'>
 						<Link to='/'>
-							<img src={logo}/>
+							<img src={logo} />
 						</Link>
 						<button
 							type='button'
@@ -28,9 +28,7 @@ export default class Navbar extends Component {
 						</button>
 					</div>
 					<ul
-						className={
-							this.state.isOpen ? "nav-links show-nav" : "nav-links"
-						}>
+						className={this.state.isOpen ? "nav-links show-nav" : "nav-links"}>
 						<li>
 							<Link to='/'>
 								<IoIosHome className='nav-icon' />
