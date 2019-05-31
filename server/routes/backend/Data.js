@@ -273,7 +273,6 @@ const location = [
 
 class Data {
   constructor() {
-    // console.log("created sample data");
     this.fact = fact;
     this.branch = branch;
     this.parcel = parcel;
