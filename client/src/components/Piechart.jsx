@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import {Pie} from 'react-chartjs-2';
+import {Pie} from 'react-chartjs-2'
 import Title from './Title'
 
 class PieChart extends Component{
@@ -10,7 +10,7 @@ class PieChart extends Component{
 			labels: ["EMS","REGISTER"],
 			datasets:[{
 				data: [this.props.charts.EMS,this.props.charts.REG],
-				backgroundColor: ['orange','']
+				backgroundColor: ['#F7D679','']
 			}]
 		}
 	}
