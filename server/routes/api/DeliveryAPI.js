@@ -3,18 +3,25 @@ require("dotenv").config();
 const express = require("express");
 const mongodb = require("mongodb");
 const SQLCover = require("../backend/SQLCover");
-const sql = new SQLCover();
+var sql;
 const router = express.Router();
-var facts = "";
 
 //Get requested data.
-// /api/delivery/data/<collection-name>
-router.get("/data/:data", async (req, res) => {
-  const data = await loadData(req.params.data);
-  facts = data.find({}).toArray();
-  res.send(await facts);
-  facts = await facts;
-  console.log(facts);
+// /api/delivery/data
+router.get("/data", async (req, res) => {
+  var trans = await loadData("transaction");
+  var t = await trans.find({}).toArray();
+  console.log(t);
+  var parcel = await loadData("parcel");
+  var p = await parcel.find({}).toArray();
+  var branch = await loadData("branch");
+  var b = await branch.find({}).toArray();
+  var date = await loadData("transaction_date");
+  var d = await date.find({}).toArray();
+  var loca = await loadData("location");
+  var l = await loca.find({}).toArray();
+  sql = new SQLCover(t, p, d, l, b);
+  res.send("ok");
 });
 
 // Get average send Type with requested month.
@@ -64,7 +71,6 @@ async function loadData(collection) {
       useNewUrlParser: true
     }
   );
-
   return client.db(process.env.DB_NAME).collection(collection);
 }
 

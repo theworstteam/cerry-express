@@ -3,11 +3,14 @@ const Parcel = require("./Parcel");
 const Branch = require("./Branch");
 const Location = require("./Location");
 const TranscationDate = require("./TransactionDate");
-const Data = require("./Data");
-const d = new Data();
 
 class SQLCover {
-  constructor() {
+  constructor(fact, parcel, date, location, branch) {
+    this.temp_f = fact;
+    this.temp_p = parcel;
+    this.temp_d = date;
+    this.temp_l = location;
+    this.temp_b = branch;
     this.fact_table = this.setFact();
     this.parcel_table = this.setParcel();
     this.date_table = this.setDate();
@@ -17,8 +20,8 @@ class SQLCover {
 
   setParcel() {
     var parcels = [];
-    for (var k = 0; k < d.getParcel().length; k++) {
-      var p_table = d.getParcel()[k];
+    for (var k = 0; k < this.temp_p.length; k++) {
+      var p_table = this.temp_p[k];
       var id = p_table["_id"];
       var w = p_table["weight"];
       var f = p_table["first_name"];
@@ -32,8 +35,8 @@ class SQLCover {
 
   setBranch() {
     var branches = [];
-    for (let z = 0; z < d.getBranch().length; z++) {
-      var b_table = d.getBranch()[z];
+    for (let z = 0; z < this.temp_b.length; z++) {
+      var b_table = this.temp_b[z];
       var id = b_table["_id"];
       var b = b_table["branch"];
       var br = new Branch(id, b);
@@ -44,8 +47,8 @@ class SQLCover {
 
   setDate() {
     var dates = [];
-    for (let h = 0; h < d.getDate().length; h++) {
-      var d_table = d.getDate()[h];
+    for (let h = 0; h < this.temp_d.length; h++) {
+      var d_table = this.temp_d[h];
       var id = d_table["_id"];
       var day = d_table["day"];
       var mo = d_table["month"];
@@ -59,8 +62,8 @@ class SQLCover {
 
   setLocation() {
     var locations = [];
-    for (let o = 0; o < d.getLocation().length; o++) {
-      var l_table = d.getLocation()[o];
+    for (let o = 0; o < this.temp_l.length; o++) {
+      var l_table = this.temp_l[o];
       var id = l_table[o];
       var na = l_table["name"];
       var loca = new Location(id, na);
@@ -71,8 +74,8 @@ class SQLCover {
 
   setFact() {
     var temp_fact = [];
-    for (var i = 0; i < d.getFact().length; i++) {
-      var temp_table = d.getFact()[i];
+    for (var i = 0; i < this.temp_f.length; i++) {
+      var temp_table = this.temp_f[i];
       var temp_fact_id = temp_table["_id"];
       var temp_id_parcel = temp_table["parcel"];
       var temp_id_date = temp_table["transaction_date"];
