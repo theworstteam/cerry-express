@@ -13,7 +13,8 @@ class PieChart extends Component{
 			datasets:[{
 				data: [40,60],
 				backgroundColor: ['red','blue']
-			}]
+            }]
+            
 		}
 	}
 

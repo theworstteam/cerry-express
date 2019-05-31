@@ -11,8 +11,10 @@ class Histogram extends Component{
 		this.state = {
             labels: ['January','February','March','April','May','June','July','August','September','October','November','December'],
 			datasets:[{
+                label: 'weight',
                 data: [40,60,20,10,5,15,30,35,60,10,25,30],
-                backgroundColor: 'red'
+                backgroundColor: 'red',
+                
 			}]
 		}
 	}
@@ -22,11 +24,13 @@ class Histogram extends Component{
 			<div>
 				<h3>Amount of parcel type</h3>
 				<Bar
+                    height = '50%'
 					data={{
 						labels:this.state.labels,
                         datasets:this.state.datasets,
-					}}
-                    height = '50%'
+                    }}
+                    
+
 				/>
 			<br/>
 			</div>
