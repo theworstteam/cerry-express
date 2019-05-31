@@ -3,41 +3,30 @@ import axios from "axios";
 
 const ParcelContext = React.createContext();
 
-class Context extends Component {
+class ParcelProvider extends Component {
     state={
-        data: [],
+        monthly_data: [],
         loading: true,
     }
-
     componentDidMount(){
-        
+        this.getData()
     }
 
     getData = () => {
-    return new Promise(async (resolve,reject) => {
-        try{
-            const res = await axios.get("http://localhost:5000/api/delivery/parcels");
-            this.data = res.data
-            resolve(
-                this.data.map(element => ({
-                    ...element,
-                }))
-                );
-            }catch(err){
-                reject(err);
-            }
-        });
+    fetch('http://localhost:5000/api/delivery/average/send-type/March')
+      .then((data) => data.json())
+      .then((res) => this.setState({ monthly_data: res, loading:false}));
     }
 
     render() {
         return (
-        <Context.Provider value=''>
+        <ParcelContext.Provider value={this.state}>
             {this.props.children}
-        </Context.Provider>
+        </ParcelContext.Provider>
         )
     }
     }
 
 const ParcelConsumer = ParcelContext.Consumer;
 
-export {ParcelContext, ParcelConsumer , Context}
+export {ParcelContext, ParcelConsumer , ParcelProvider}
