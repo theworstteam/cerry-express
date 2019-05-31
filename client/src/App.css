@@ -100,6 +100,7 @@ h6 {
 .nav-header {
   display: flex;
   justify-content: space-between;
+
 }
 .nav-btn {
   background: transparent;
@@ -111,12 +112,14 @@ h6 {
   font-size: 1.5rem;
   margin-right:8px;
   color: var(--primaryColor);
+
 }
 .nav-links {
   height: 0;
   overflow: hidden;
   transition: var(--mainTransition);
   list-style-type: none;
+  
 }
 .nav-links a {
   display: block;
@@ -129,12 +132,15 @@ h6 {
   font-weight: 600;
   letter-spacing: var(--mainSpacing);
 }
+
 .nav-links a:hover {
   color: var(--primaryColor);
+  
 }
 
 .show-nav {
-  height: 100px;
+  height: 100%;
+  
 }
 @media screen and (min-width: 768px) {
   .nav-btn {

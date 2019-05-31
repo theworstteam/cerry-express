@@ -6,7 +6,8 @@ import {Pie} from 'react-chartjs-2';
 class PieChart extends Component{
 
 	constructor(props){
-		super(props)
+        super(props)
+        
 		this.state = {
 			labels: ['EMS','REG'],
 			datasets:[{

@@ -8,6 +8,8 @@ import Branches from "./pages/Branches"
 import Location from "./pages/Location"
 import Profits from "./pages/Profits"
 import Error from "./pages/Error"
+import Histogram from "./components/Histogram";
+import PieChart from "./components/Piechart";
 
 
 class App extends Component {
@@ -23,6 +25,8 @@ class App extends Component {
           <Route exact path="/profits/" component={Profits}/>
           <Route component={Error} />
         </Switch>
+        <Histogram/>
+        <PieChart/>
       </>
     );
   }
