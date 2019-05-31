@@ -1,51 +1,51 @@
-import React,{Component} from 'react'
-import {Bar} from 'react-chartjs-2';
+import React, { Component } from "react";
+import { Bar } from "react-chartjs-2";
+import Title from "./Title";
 
+class Histogram extends Component {
+	constructor(props) {
+		super(props);
 
-
-
-class Histogram extends Component{
-
-	constructor(props){
-        super(props)
-        
-        
 		this.state = {
-            labels: ['January','February','March','April','May','June','July','August','September','October','November','December'],
-			datasets:[{
-                label: 'average weight send to each location',
-                data: [40,60,20,10,5,15,30,35,60,10,25,30],
-                backgroundColor: 'red',
-                
-			}]
-        }
-    
-        
+			labels: [
+				"January",
+				"February",
+				"March",
+				"April",
+				"May",
+				"June",
+				"July",
+				"August",
+				"September",
+				"October",
+				"November",
+				"December",
+			],
+			datasets: [
+				{
+					label: "weight",
+					data: [40, 60, 20, 10, 5, 15, 30, 35, 60, 10, 25, 30],
+					backgroundColor: "#F7D679",
+				},
+			],
+		};
 	}
 
-	render(){
-
-		return(
-			<div className="roomslist-center">
+	render() {
+		return (
+			<div className="center-histogram">
+				<Title name = "Histrogram"/>
 				<Bar
-                    width={50}
-                    height={300}
-                    options={{ maintainAspectRatio: false }}
-                    padding-top= '50%'
+					height='50%'
 					data={{
-						labels:this.state.labels,
-                        datasets:this.state.datasets,
-                    
-                    }}
-
-                    
-                
+						labels: this.state.labels,
+						datasets: this.state.datasets,
+					}}
 				/>
-			<br/>
+				<br />
 			</div>
-            
-		)
+		);
 	}
 }
 
-export default Histogram
+export default Histogram;

@@ -4,24 +4,38 @@ const ParcelContext = React.createContext();
 
 class ParcelProvider extends Component {
     state={
-        monthly_data: [],
+        monthly_parcel: [],
+        monthly_weight: [],
         month: ['January','February','March','April','May','June','July','August','September','October','November','December'],
         loading: true,
     }
     componentDidMount(){
         let {month} = this.state
         for (let index = 0; index < month.length; index++) {
-            this.getMonthlyData(month[index])
+            this.getMonthlyParcel(month[index])
+
         }
-        this.setState({loading:false})
+        console.log(this.state.monthly_weight)
+        this.setState({
+            loading:false
+        })
         
     }
 
-    getMonthlyData = (month) => {
+    getMonthlyParcel = (month) => {
         fetch('http://localhost:5000/api/delivery/average/send-type/'+month)
         .then((data) => data.json())
-        .then((res) => this.state.monthly_data.push(res));
+        .then((res) => this.state.monthly_parcel.push(res));
     }
+    getMonthyWeight = (month) => {
+        fetch('http://localhost:5000/api/delivery/average/weight/'+month)
+        .then((data) => data.json())
+        .then((res) => this.state.monthly_weight.push(res));
+    }
+    
+        
+
+    
 
 
     render() {

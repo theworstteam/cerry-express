@@ -1,14 +1,12 @@
-import React from "react";
-import PieChartContainer from "../components/PieChartContainer";
+import React from 'react'
+import ParcelContainer from "../components/ParcelContainer";
 
-const Parcels = () => {
+export default function Parcels() {
 	return (
-		<>
-			<PieChartContainer/>
-        </>
-	);
-};
-
-export default Parcels;
+		<div>
+			<ParcelContainer/>
+		</div>
+	)
+}
 
 

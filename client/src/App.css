@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 :root {
-  --primaryColor: #a79277;
+  --primaryColor: #F7D679;
   --mainWhite: #fff;
   --offWhite: #f7f7f7;
   --mainBlack: #222;
@@ -93,6 +93,8 @@ h6 {
   top: 0;
   left: 0;
   width: 100%;
+      height: 75px;
+
   padding: 0.75rem 2rem;
   background: var(--offWhite);
   z-index: 1;
@@ -159,10 +161,17 @@ h6 {
 
 /* Title */
 .section-title {
+  padding-top: 30px;
   text-align: center;
   margin-bottom: 4rem;
 }
 .section-title h4 {
+  font-size: 2rem;
+  letter-spacing: var(--mainSpacing);
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+}
+.section-title h3 {
   font-size: 2rem;
   letter-spacing: var(--mainSpacing);
   text-transform: capitalize;
@@ -343,7 +352,7 @@ h6 {
 .roomslist {
   padding: 5rem 0;
 }
-.roomslist-center {
+.parcel-center {
   padding-top: 50px;
   width: 80vw;
   margin: 0 auto;
@@ -417,3 +426,8 @@ h6 {
   }
 }
 /* end of rooms fitler*/
+
+.center-histogram{
+  margin: 0 150px;
+
+}
