@@ -265,6 +265,77 @@ class SQLCover {
     };
     return data;
   }
+
+  getAverageWeightPerLocation(month) {
+    var bkk = 0;
+    var bkkw = 0;
+    var cmi = 0;
+    var cmiw = 0;
+    var nbi = 0;
+    var nbiw = 0;
+    var pkt = 0;
+    var pktw = 0;
+    var sti = 0;
+    var stiw = 0;
+    var kbi = 0;
+    var kbiw = 0;
+    var tak = 0;
+    var takw = 0;
+    var stn = 0;
+    var stnw = 0;
+    var pre = 0;
+    var prew = 0;
+    for (let i = 0; i < this.fact_table.length; i++) {
+      var trans = this.fact_table[i];
+      var parcel = this.getParcelByID(trans.getParcelID());
+      var date = this.getDateByID(trans.getDateID());
+      var location = trans.getLocationID();
+      if (date.getMonth() === month) {
+        if (location === "BKK") {
+          bkk++;
+          bkkw += parcel.getParcelWeight();
+        } else if (location === "CMI") {
+          cmi++;
+          cmiw += parcel.getParcelWeight();
+        } else if (location === "NBI") {
+          nbi++;
+          nbiw += parcel.getParcelWeight();
+        } else if (location === "PKT") {
+          pkt++;
+          pktw += parcel.getParcelWeight();
+        } else if (location === "STI") {
+          sti++;
+          stiw += parcel.getParcelWeight();
+        } else if (location === "KBI") {
+          kbi++;
+          kbiw += parcel.getParcelWeight();
+        } else if (location === "TAK") {
+          tak++;
+          takw += parcel.getParcelWeight();
+        } else if (location === "STN") {
+          stn++;
+          stnw += parcel.getParcelWeight();
+        } else if (location === "PRE") {
+          pre++;
+          prew += parcel.getParcelWeight();
+        }
+      }
+    }
+    const data = {
+      Month: month,
+      Year: 2019,
+      BKK: bkkw / bkk,
+      CMI: cmiw / cmi,
+      NBI: nbiw / nbi,
+      PKT: pktw / pkt,
+      STI: stiw / sti,
+      KBI: kbiw / kbi,
+      TAK: takw / tak,
+      STN: stnw / stn,
+      PRE: prew / pre
+    };
+    return data;
+  }
 }
 
 module.exports = SQLCover;

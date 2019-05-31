@@ -45,6 +45,13 @@ router.get("/average/location/:month", async (req, res) => {
   res.send(data);
 });
 
+// Get average weight sent to each location in requested month.
+// /api/delivery/average/weight-location/<month>
+router.get("/average/weight-location/:month", async (req, res) => {
+  const data = sql.getAverageWeightPerLocation(req.params.month);
+  res.send(data);
+});
+
 //Open connection with the database, function returns client for further interaction.
 async function loadData(collection) {
   const client = await mongodb.MongoClient.connect(

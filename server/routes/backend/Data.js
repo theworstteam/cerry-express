@@ -46,7 +46,7 @@ const fact = [
     parcel: "1006",
     transaction_date: "070219",
     branch: "104",
-    location: "CRI"
+    location: "CMI"
   },
   {
     _id: "10007",
@@ -88,7 +88,7 @@ const fact = [
     parcel: "1012",
     transaction_date: "031219",
     branch: "101",
-    location: "CRI"
+    location: "CMI"
   },
   {
     _id: "10013",
