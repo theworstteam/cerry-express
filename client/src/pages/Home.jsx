@@ -1,12 +1,11 @@
 import React from "react";
-import Loading from '../components/Loading'
+import PieChartContainer from "../components/PieChartContainer";
 
 
 export default function Home() {
 	return (
 		<>
-		hello from home
-		<Loading name= "home"/>
+			<PieChartContainer/>
 		</>
 	);
 }
