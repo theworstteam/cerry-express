@@ -46,7 +46,7 @@ const fact = [
     parcel: "1006",
     transaction_date: "070219",
     branch: "104",
-    location: "CRI"
+    location: "CMI"
   },
   {
     _id: "10007",
@@ -88,7 +88,7 @@ const fact = [
     parcel: "1012",
     transaction_date: "031219",
     branch: "101",
-    location: "CRI"
+    location: "CMI"
   },
   {
     _id: "10013",
@@ -235,9 +235,9 @@ const branch = [
   { _id: "103", branch: "Chonburi" },
   { _id: "105", branch: "Kanchanaburi" },
   { _id: "106", branch: "Yala" },
-  { _id: "104", name: "Nonthaburi" },
-  { _id: "107", name: "Krabi" },
-  { _id: "108", name: "Tak" }
+  { _id: "104", branch: "Nonthaburi" },
+  { _id: "107", branch: "Krabi" },
+  { _id: "108", branch: "Tak" }
 ];
 
 const date = [
