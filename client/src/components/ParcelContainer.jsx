@@ -9,16 +9,14 @@ export default function ParcelContainer() {
     return (
 			<ParcelConsumer>
 				{value => {
-					const { loading, monthly_parcel } = value;
+					const { loading, monthly_parcel, monthly_weight } = value;
 					if (loading) {
 						return <Loading name="Pie Chart"/>;
 					}
 					return (
 						<>	
-							<Title name="Pie Chart"/>
 							<PieChartList charts={monthly_parcel}/>
-							<Histrogram/>
-							
+							<Histrogram histogram={monthly_weight}/>
 						</>
 					)
 				}}
