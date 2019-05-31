@@ -344,6 +344,7 @@ h6 {
   padding: 5rem 0;
 }
 .roomslist-center {
+  padding-top: 50px;
   width: 80vw;
   margin: 0 auto;
   display: grid;

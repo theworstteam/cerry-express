@@ -3,7 +3,8 @@ import PieChart from './PieChart'
 
 
 export default function PieChartList({charts}) {
-	console.log(Object.keys(charts).length)
+	
+	console.log(charts.length)
     if(charts === 0){
         return (
 			<div className='empty-search'>
@@ -21,5 +22,5 @@ export default function PieChartList({charts}) {
                     })}
 				</div>
 			</section>
-		);
+		)
 }

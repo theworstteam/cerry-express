@@ -1,11 +1,14 @@
 import React from "react";
-import PieChartContainer from "../components/PieChartContainer";
+import Histogram from "../components/Histogram";
+import '../App.css';
+
 
 
 export default function Home() {
 	return (
 		<>
-			<PieChartContainer/>
+		<Histogram/>
+		
 		</>
 	);
 }

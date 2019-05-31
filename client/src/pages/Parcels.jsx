@@ -1,9 +1,10 @@
-import React from 'react'
+import React from "react";
+import PieChartContainer from "../components/PieChartContainer";
 
 const Parcels = () => {
 	return (
 		<>
-
+			<PieChartContainer/>
         </>
 	);
 };
