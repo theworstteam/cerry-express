@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 :root {
-  --primaryColor: #a79277;
+  --primaryColor: #F7D679;
   --mainWhite: #fff;
   --offWhite: #f7f7f7;
   --mainBlack: #222;
@@ -163,6 +163,12 @@ h6 {
   margin-bottom: 4rem;
 }
 .section-title h4 {
+  font-size: 2rem;
+  letter-spacing: var(--mainSpacing);
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+}
+.section-title h3 {
   font-size: 2rem;
   letter-spacing: var(--mainSpacing);
   text-transform: capitalize;
@@ -343,7 +349,8 @@ h6 {
 .roomslist {
   padding: 5rem 0;
 }
-.roomslist-center {
+.parcel-center {
+  padding-top: 50px;
   width: 80vw;
   margin: 0 auto;
   display: grid;

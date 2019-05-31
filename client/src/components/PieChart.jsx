@@ -9,24 +9,26 @@ class PieChart extends Component{
 			labels: ["EMS","REGISTER"],
 			datasets:[{
 				data: [this.props.charts.EMS,this.props.charts.REG],
-				backgroundColor: ['orange','gray']
+				backgroundColor: ['#F7D679','']
 			}]
 		}
 	}
 	render(){
 		const { Month } = this.props.charts;
-		return(
+		return (
 			<div>
-				<Title name = {Month}/>
+				<div className='section-title'>
+					<h5>{Month}</h5>
+				</div>
 				<Pie
 					data={{
-						labels:this.state.labels,
-						datasets:this.state.datasets
+						labels: this.state.labels,
+						datasets: this.state.datasets,
 					}}
 				/>
-			<br/>
+				<br />
 			</div>
-		)
+		);
 	}
 }
 
