@@ -3,11 +3,12 @@ import PieChart from './PieChart'
 
 
 export default function PieChartList({charts}) {
-    if(charts.length === 0){
+	console.log(Object.keys(charts).length)
+    if(charts === 0){
         return (
 			<div className='empty-search'>
 				<h3>
-					unfortunately no pie chart left
+					Unfortunately no pie chart left
 				</h3>
 			</div>
 		    );
@@ -15,7 +16,9 @@ export default function PieChartList({charts}) {
     return (
 			<section className='roomslist'>
 				<div className='roomslist-center'>
-					<PieChart charts={charts} />
+					{charts.map(item => {
+						return <PieChart key={item.id} charts={item} />;
+                    })}
 				</div>
 			</section>
 		);

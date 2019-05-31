@@ -2,8 +2,7 @@ import React,{Component} from 'react'
 import {Pie} from 'react-chartjs-2';
 import Title from './Title'
 
-class PieChart extends Component{
-	
+class PieChart extends Component{	
 	constructor(props){
 		super(props)
 		this.state = {
@@ -15,7 +14,7 @@ class PieChart extends Component{
 		}
 	}
 	render(){
-		const { Month, Year, EMS, REG } = this.props.charts;
+		const { Month } = this.props.charts;
 		return(
 			<div>
 				<Title name = {Month}/>
