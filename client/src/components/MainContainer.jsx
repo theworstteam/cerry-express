@@ -20,15 +20,15 @@ export default function MainContainer() {
 				if (loading) {
 					return <Loading name='Parcel Data' />;
                 }
-                console.log(monthly_location)
+                console.log(monthly_parcel)
                 console.log(monthly_service)
                 console.log(monthly_wl)
 				return <>
                     <SummaryChart charts={monthly_parcel}/>
-                    <SummaryChart charts={monthly_weight}/>
+                    {/* <SummaryChart charts={monthly_weight}/>
                     <SummaryChart charts={monthly_location}/>
                     <SummaryChart charts={monthly_service}/>
-                    <SummaryChart charts={monthly_wl}/>
+                    <SummaryChart charts={monthly_wl}/> */}
                     </>;
 			}}
 		</ParcelConsumer>

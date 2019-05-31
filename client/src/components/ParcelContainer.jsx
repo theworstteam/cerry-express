@@ -1,7 +1,7 @@
 import React from "react";
 import { ParcelConsumer } from "../context";
 import PieChartList from "./PieChartList";
-import Histrogram from "./Histogram";
+import Histogram from "./Histogram";
 import Loading from "./Loading";
 import Title from "./Title";
 
@@ -13,10 +13,11 @@ export default function ParcelContainer() {
 				if (loading) {
 					return <Loading name='Parcel Data' />;
 				}
+				console.log(monthly_wl)
 				return (
 					<>
 						<PieChartList charts={monthly_parcel} />
-						<Histrogram histogram={monthly_weight} />
+						<Histogram histogram={monthly_weight} />
 					</>
 				);
 			}}

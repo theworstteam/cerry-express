@@ -5,24 +5,49 @@ import Title from "./Title";
 class PieChart extends Component {
 	constructor(props) {
 		super(props);
+		const {charts} = this.props;
 		this.state = {
-			labels: ["EMS", "REGISTER"],
+			labels: [
+				"January",
+				"February",
+				"March",
+				"April",
+				"May",
+				"June",
+				"July",
+				"August",
+				"September",
+				"October",
+				"November",
+				"December",
+			],
 			datasets: [
 				{
-					data: [this.props.charts.EMS, this.props.charts.REG],
-					backgroundColor: ["#F7D679", ""],
+					data: charts.map(item => item.EMS + item.REG),
+					backgroundColor: [
+						"#F7D679",
+						"",
+						"",
+						"",
+						"",
+						"",
+						"",
+						"",
+						"",
+						"",
+						"",
+						"",
+					],
 				},
 			],
 		};
 	}
 	render() {
-		const { Month } = this.props.charts;
 		return (
 			<div>
-				<div className='section-title'>
-					<h5>{Month}</h5>
-				</div>
+				<Title name="Total parcels per month"/>
 				<Pie
+					height='75%'
 					data={{
 						labels: this.state.labels,
 						datasets: this.state.datasets,
