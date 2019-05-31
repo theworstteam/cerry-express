@@ -336,7 +336,6 @@ class SQLCover {
     };
     return data;
   }
-
 }
 
 module.exports = SQLCover;
