@@ -15,7 +15,7 @@ export default function PieChartList({charts}) {
     return (
 			<section className='roomslist'>
 				<div className='roomslist-center'>
-				<PieChart charts={charts} />
+					<PieChart charts={charts} />
 				</div>
 			</section>
 		);
