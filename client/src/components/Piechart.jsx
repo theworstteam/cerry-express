@@ -9,7 +9,7 @@ class PieChart extends Component{
 			labels: ["EMS","REGISTER"],
 			datasets:[{
 				data: [this.props.charts.EMS,this.props.charts.REG],
-				backgroundColor: ['orange','']
+				backgroundColor: ['orange','gray']
 			}]
 		}
 	}
