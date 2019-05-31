@@ -23,23 +23,17 @@ class Histogram extends Component {
 			datasets: [
 				{
 					label: "Avg Weight per Month",
-					data: [],
+					data: this.props.histogram.map(item => item.Average),
 					backgroundColor: "#F7D679",
 				},
 			],
 		};
 	}
-
-	componentDidUpdate() {
-        var { histogram } = this.props;
-        const avg = histogram.map(item => item.Average);
-        this.state.datasets.data = avg
-
-	}
 	render() {
+		
 		return (
-			<div>
-				<Title name='Histrogram' />
+			<div className='center-histogram'>
+				<Title name='Histogram' />
 				<Bar
 					height='50%'
 					data={{

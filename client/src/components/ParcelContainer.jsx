@@ -9,7 +9,7 @@ export default function ParcelContainer() {
 	return (
 		<ParcelConsumer>
 			{value => {
-				const { loading, monthly_parcel, monthly_weight } = value;
+				const { loading, monthly_parcel, monthly_weight , monthly_wl} = value;
 				if (loading) {
 					return <Loading name='Parcel Data' />;
 				}
