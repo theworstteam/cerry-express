@@ -11,7 +11,6 @@ const router = express.Router();
 router.get("/data", async (req, res) => {
   var trans = await loadData("transaction");
   var t = await trans.find({}).toArray();
-  console.log(t);
   var parcel = await loadData("parcel");
   var p = await parcel.find({}).toArray();
   var branch = await loadData("branch");

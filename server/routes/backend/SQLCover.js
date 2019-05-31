@@ -7,6 +7,7 @@ const TranscationDate = require("./TransactionDate");
 class SQLCover {
   constructor(fact, parcel, date, location, branch) {
     this.temp_f = fact;
+    console.log(this.temp_f);
     this.temp_p = parcel;
     this.temp_d = date;
     this.temp_l = location;
@@ -158,8 +159,8 @@ class SQLCover {
     var count = 0;
     for (let i = 0; i < this.fact_table.length; i++) {
       var trans = this.fact_table[i];
-      var parcel = getParcelByID(trans.getParcelID());
-      var date = getDateByID(trans.getDateID());
+      var parcel = this.getParcelByID(trans.getParcelID());
+      var date = this.getDateByID(trans.getDateID());
       if (date.getMonth() === month) {
         weight += parcel.getParcelWeight();
         count++;

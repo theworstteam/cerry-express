@@ -5,7 +5,6 @@ import Title from "./Title";
 class Histogram extends Component {
 	constructor(props) {
 		super(props);
-
 		this.state = {
 			labels: [
 				"January",
@@ -23,18 +22,30 @@ class Histogram extends Component {
 			],
 			datasets: [
 				{
-					label: "weight",
-					data: [40, 60, 20, 10, 5, 15, 30, 35, 60, 10, 25, 30],
+					label: "Avg Weight per Month",
+					data: [1,1],
 					backgroundColor: "#F7D679",
 				},
 			],
 		};
 	}
+    
+    componentDidMount(){
+        var { histogram } = this.props;
+        console.log(histogram)
+
+        // console.log(histogram.length)
+        // for (let index = 0; index < histogram.length; index++) {
+        //     console.log(histogram[index])
+        // }
+    }
 
 	render() {
+        // var { histogram } = this.props;  
+
 		return (
-			<div className="center-histogram">
-				<Title name = "Histrogram"/>
+			<div className='center-histogram'>
+				<Title name='Histrogram' />
 				<Bar
 					height='50%'
 					data={{

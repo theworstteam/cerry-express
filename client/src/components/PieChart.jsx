@@ -12,7 +12,17 @@ class PieChart extends Component{
 				backgroundColor: ['#F7D679','']
 			}]
 		}
+
 	}
+
+
+
+	componentDidUpdate(prevProps) {
+		if(prevProps.charts !== this.props.charts) {
+		  this.setState({charts: this.props.charts});
+		}
+	  }
+
 	render(){
 		const { Month } = this.props.charts;
 		return (
@@ -29,6 +39,7 @@ class PieChart extends Component{
 				<br />
 			</div>
 		);
+
 	}
 }
 

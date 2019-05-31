@@ -10,34 +10,31 @@ class ParcelProvider extends Component {
         loading: true,
     }
     componentDidMount(){
+        this.initData()
         let {month} = this.state
         for (let index = 0; index < month.length; index++) {
-            this.getMonthlyParcel(month[index])
-
+            this.queryMonthlyParcel(month[index])
+            this.queryMonthyWeight(month[index])
         }
-        console.log(this.state.monthly_weight)
         this.setState({
             loading:false
         })
         
     }
-
-    getMonthlyParcel = (month) => {
+    initData = () => {
+        fetch('http://localhost:5000/api/delivery/data')
+    }
+    queryMonthlyParcel = (month) => {
         fetch('http://localhost:5000/api/delivery/average/send-type/'+month)
         .then((data) => data.json())
         .then((res) => this.state.monthly_parcel.push(res));
     }
-    getMonthyWeight = (month) => {
+    queryMonthyWeight = (month) => {
         fetch('http://localhost:5000/api/delivery/average/weight/'+month)
         .then((data) => data.json())
         .then((res) => this.state.monthly_weight.push(res));
     }
     
-        
-
-    
-
-
     render() {
         return (
         <ParcelContext.Provider value={this.state}>

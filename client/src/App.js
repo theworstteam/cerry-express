@@ -7,7 +7,11 @@ import Parcels from "./pages/Parcels"
 import Error from "./pages/Error"
 
 
+
 class App extends Component {
+
+
+  
   render() {
     return (
       <>
@@ -17,9 +21,11 @@ class App extends Component {
           <Route exact path="/parcels/" component={Parcels}/>
           <Route component={Error} />
         </Switch>
+
       </>
     );
   }
+  
 }
 
 export default App;
