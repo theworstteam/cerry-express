@@ -29,9 +29,9 @@ export default class SendTypeChart extends Component {
 	render() {
 		return (
 			<div>
-				<Title name='Total Send Type' />
+				<Title name='Send Type' />
 				<Pie
-					height='95%'
+					height='120%'
 					data={{
 						labels: this.state.labels,
 						datasets: this.state.datasets,
