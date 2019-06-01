@@ -76,6 +76,40 @@ router.get("/average/weight-location/:month", async (req, res) => {
   res.send(data);
 });
 
+router.post(
+  "/parcel/:weight/:firstname/:lastname/:type/:dateid/:day/:month/:year/:duration",
+  async (req, res) => {
+    var db = await loadData("parcel");
+    const pmax = sql.getParcelMax();
+    const tmax = sql.getTransMax();
+    const parcel = {
+      _id: pmax + 1,
+      weight: req.params.weight,
+      first_name: req.params.firstname,
+      last_name: req.params.lastname
+    };
+    res.send(await db.post(parcel));
+    db = await loadData("transaction_date");
+    const date = {
+      _id: req.params.dateid,
+      day: req.params.day,
+      month: req.params.month,
+      year: req.params.year,
+      duration: req.params.duration
+    };
+    res.send(await db.post(date));
+    db = loadData("transaction");
+    const trans = {
+      _id: tmax + 1,
+      parcel: parcel["_id"],
+      transaction_date: date["_id"],
+      branch: "100",
+      location: "BKK"
+    };
+    res.send(await db.post(trans));
+  }
+);
+
 //Open connection with the database, function returns client for further interaction.
 async function loadData(collection) {
   const client = await mongodb.MongoClient.connect(

@@ -448,6 +448,25 @@ class SQLCover {
     };
     return data;
   }
+
+  getParcelMax() {
+    var max = 0;
+    for (let i = 0; i < this.parcel_table.length; i++) {
+      if (this.parcel_table[i].getParcelID() > 0) {
+        max = this.parcel_table[i].getParcelID();
+      }
+    }
+    return max;
+  }
+  getTransMax() {
+    var max = 0;
+    for (let i = 0; i < this.fact_table.length; i++) {
+      if (this.fact_table[i].getTransactionID() > 0) {
+        max = this.fact_table[i].getTransactionID();
+      }
+    }
+    return max;
+  }
 }
 
 module.exports = SQLCover;
