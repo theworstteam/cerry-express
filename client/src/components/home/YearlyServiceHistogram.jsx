@@ -22,7 +22,7 @@ export default class YearlyServiceHistogram extends Component {
 				{
 					label: "services per branch",
 					data: [3, 4, 5, 6, 5, 3, 8, 1, 1],
-					backgroundColor: ["#F7D679", "", "", "", "", "", "", "", ""],
+					backgroundColor: ["#F7D679"],
 				},
 			],
 		};

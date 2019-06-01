@@ -28,8 +28,7 @@ export default class WeightHistogram extends Component {
 			],
 		};
 	}
-	render() {
-		
+	render() {	
 		return (
 			<div className='center-histogram'>
 				<Bar

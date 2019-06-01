@@ -19,7 +19,6 @@ export default function HomeContainer() {
 					average_service,
 					average_wl,
 				} = value;
-
 				if (loading) {
 					return <Loading name='Parcel Data' />;
 				}

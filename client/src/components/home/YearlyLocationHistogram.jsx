@@ -21,7 +21,7 @@ export default class YearlyLocationHistogram extends Component {
 				{
 					label: "parcel sent per year",
 					data: [2, 2, 2, 2, 2, 2, 2, 2, 1],
-					backgroundColor: ["#F7D679", "", "", "", "", "", "", "", ""],
+					backgroundColor: ["#F7D679"],
 				},
 			],
 		};
