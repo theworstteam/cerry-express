@@ -5,7 +5,6 @@ import YearlySendTypeChart from "./YearlySendTypeChart";
 import YearlyWeightAmount from './YearlyWeightAmount'
 import YearlyLocationHistogram from './YearlyLocationHistogram'
 import YearlyServiceHistogram from './YearlyServiceHistogram'
-import YearlyWeightLocationHistogram from './YearlyWeightLocationHistogram'
 
 export default function HomeContainer() {
 	return (
@@ -19,17 +18,16 @@ export default function HomeContainer() {
 					average_service,
 					average_wl,
 				} = value;
-
 				if (loading) {
 					return <Loading name='Parcel Data' />;
 				}
 				return (
 					<div className='parcel-center'>
 						<YearlySendTypeChart charts={average_parcel} />
-						<YearlyLocationHistogram charts={average_location} />
-						<YearlyServiceHistogram charts={average_service} />
-						<YearlyWeightLocationHistogram charts={average_wl} />
-						<YearlyWeightAmount charts={average_weight} /> 
+						<YearlyLocationHistogram histogram={average_location} name = {"Location"} bar ={"parcel sent per month"}/>
+						<YearlyLocationHistogram histogram={average_wl} name= {"Weight/location"} bar={"average weight per location"}/>
+						<YearlyServiceHistogram histogram={average_service} />
+						<YearlyWeightAmount data={average_weight} /> 
 					</div>
 				);
 			}}
