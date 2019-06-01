@@ -38,6 +38,12 @@ export default class Navbar extends Component {
 							</Link>
 						</li>
 						<li>
+							<Link to='/input'>
+								<IoMdCube className='nav-icon' />
+								Input
+							</Link>
+						</li>	
+						<li>
 							<Link to='/parcel'>
 								<IoMdCube className='nav-icon' />
 								Parcel

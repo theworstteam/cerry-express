@@ -7,6 +7,7 @@ import Parcels from "./pages/Parcels"
 import Service from "./pages/Service"
 import Location from "./pages/Location"
 import Error from "./pages/Error"
+import Input from "./pages/Input"
 
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
         <Navbar/>
         <Switch>
           <Route exact path="/" component={Home}/>
+          <Route exact path="/input/" component={Input}/>
           <Route exact path="/parcel/" component={Parcels}/>
           <Route exact path="/service/" component={Service}/>
           <Route exact path="/location/" component={Location}/>
