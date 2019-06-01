@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Bar } from "react-chartjs-2";
-import Title from '../Title'
+import Title from "../Title";
 
-export default class MonthlyServiceHistogram extends Component {
+export default class ResourceHistogram extends Component {
 	constructor(props) {
 		super(props);
 		const {
@@ -50,7 +50,7 @@ export default class MonthlyServiceHistogram extends Component {
 	render() {
 		return (
 			<div className='center-histogram'>
-				<Title name={this.props.histogram.Month} />
+				<Title name={this.props.title} />
 				<Bar
 					height='50%'
 					data={{
@@ -63,4 +63,3 @@ export default class MonthlyServiceHistogram extends Component {
 		);
 	}
 }
-
