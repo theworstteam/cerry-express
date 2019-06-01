@@ -16,9 +16,7 @@ class SQLCover {
     this.temp_c = car;
     this.temp_s = staff;
     this.car_table = this.setCar();
-    // console.log(this.car_table);
     this.staff_table = this.setStaff();
-    // console.log(this.staff_table);
     this.fact_table = this.setFact();
     this.parcel_table = this.setParcel();
     this.date_table = this.setDate();

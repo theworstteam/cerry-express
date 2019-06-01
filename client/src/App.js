@@ -6,6 +6,7 @@ import Home from "./pages/Home"
 import Parcels from "./pages/Parcels"
 import Service from "./pages/Service"
 import Location from "./pages/Location"
+import Resource from './pages/Resource'
 import Error from "./pages/Error"
 
 
@@ -19,6 +20,7 @@ class App extends Component {
           <Route exact path="/parcel/" component={Parcels}/>
           <Route exact path="/service/" component={Service}/>
           <Route exact path="/location/" component={Location}/>
+          <Route exact path="/resource/" component={Resource}/>
           <Route component={Error} />
         </Switch>
       </>

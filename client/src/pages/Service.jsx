@@ -14,7 +14,7 @@ export default function Service() {
 						average_service,
 					} = value;
 					if (loading) {
-						return <Loading name='Parcel Data' />;
+						return <Loading name='Service' />;
 					}
 					return (
 						<div>
