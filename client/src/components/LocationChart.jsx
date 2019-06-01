@@ -20,18 +20,9 @@ export default class LocationChart extends Component {
 			],
 			datasets: [
 				{
-					data: [2,2,2,2,2,2,2,2,1],
-					backgroundColor: [
-						"#F7D679",
-						"",
-						"",
-						"",
-						"",
-						"",
-						"",
-						"",
-						"",
-					],
+					label: "parcel sent per year",
+					data: [2, 2, 2, 2, 2, 2, 2, 2, 1],
+					backgroundColor: ["#F7D679", "", "", "", "", "", "", "", ""],
 				},
 			],
 		};

@@ -20,6 +20,7 @@ export default class WeightLocationChart extends Component {
 			],
 			datasets: [
 				{
+					label: "weight per location",
 					data: [3, 4, 5, 6, 5, 3, 8, 1, 1],
 					backgroundColor: ["#F7D679", "", "", "", "", "", "", "", ""],
 				},

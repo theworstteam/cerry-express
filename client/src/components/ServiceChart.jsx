@@ -7,9 +7,20 @@ export default class ServiceChart extends Component {
 		super(props);
 		const { charts } = this.props;
 		this.state = {
-			labels: ["Bangkok", "ChiangRai","Chonburi", "Kanchanaburi", "Krabi", "Nan", "Nonthaburi", "Taka", "Yala"],
+			labels: [
+				"Bangkok",
+				"ChiangRai",
+				"Chonburi",
+				"Kanchanaburi",
+				"Krabi",
+				"Nan",
+				"Nonthaburi",
+				"Taka",
+				"Yala",
+			],
 			datasets: [
 				{
+					label: "services per branch",
 					data: [3, 4, 5, 6, 5, 3, 8, 1, 1],
 					backgroundColor: ["#F7D679", "", "", "", "", "", "", "", ""],
 				},
