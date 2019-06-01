@@ -11,7 +11,6 @@ const router = express.Router();
 router.get("/data", async (req, res) => {
   var trans = await loadData("transaction");
   var t = await trans.find({}).toArray();
-  console.log(t);
   var parcel = await loadData("parcel");
   var p = await parcel.find({}).toArray();
   var branch = await loadData("branch");
@@ -20,7 +19,11 @@ router.get("/data", async (req, res) => {
   var d = await date.find({}).toArray();
   var loca = await loadData("location");
   var l = await loca.find({}).toArray();
-  sql = new SQLCover(t, p, d, l, b);
+  var ca = await loadData("car");
+  var c = await ca.find({}).toArray();
+  var st = await loadData("staff");
+  var s = await st.find({}).toArray();
+  sql = new SQLCover(t, p, d, l, b, c, s);
   res.send("ok");
 });
 
@@ -49,6 +52,20 @@ router.get("/average/service/:month", async (req, res) => {
 // /api/delivery/average/location/<month>
 router.get("/average/location/:month", async (req, res) => {
   const data = sql.getLocationSentPerMonth(req.params.month);
+  res.send(data);
+});
+
+// Get car amount in each branch.
+// /api/delivery/branch/car/
+router.get("/branch/car", async (req, res) => {
+  const data = sql.getCarPerBranch();
+  res.send(data);
+});
+
+// Get staffs in each branch.
+// /api/delivery/branch/staff/
+router.get("/branch/staff", async (req, res) => {
+  const data = sql.getStaffsPerBranch();
   res.send(data);
 });
 

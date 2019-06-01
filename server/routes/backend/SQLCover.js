@@ -3,19 +3,54 @@ const Parcel = require("./Parcel");
 const Branch = require("./Branch");
 const Location = require("./Location");
 const TranscationDate = require("./TransactionDate");
+const Car = require("./Car");
+const Staff = require("./Staff");
 
 class SQLCover {
-  constructor(fact, parcel, date, location, branch) {
+  constructor(fact, parcel, date, location, branch, car, staff) {
     this.temp_f = fact;
     this.temp_p = parcel;
     this.temp_d = date;
     this.temp_l = location;
     this.temp_b = branch;
+    this.temp_c = car;
+    this.temp_s = staff;
+    this.car_table = this.setCar();
+    // console.log(this.car_table);
+    this.staff_table = this.setStaff();
+    // console.log(this.staff_table);
     this.fact_table = this.setFact();
     this.parcel_table = this.setParcel();
     this.date_table = this.setDate();
-    this.branch_tabel = this.setBranch();
+    this.branch_table = this.setBranch();
     this.location_table = this.setLocation();
+  }
+
+  setCar() {
+    var cars = [];
+    for (let i = 0; i < this.temp_c.length; i++) {
+      var c_table = this.temp_c[i];
+      var id = c_table["_id"];
+      var cid = c_table["car_branch_id"];
+      var t = c_table["type"];
+      var tempCar = new Car(id, cid, t);
+      cars.push(tempCar);
+    }
+    return cars;
+  }
+
+  setStaff() {
+    var staffs = [];
+    for (let i = 0; i < this.temp_s.length; i++) {
+      var s_table = this.temp_s[i];
+      var id = s_table["_id"];
+      var branch = s_table["staff_branch_id"];
+      var f = s_table["first_name"];
+      var l = s_table["last_name"];
+      var tempStaff = new Staff(id, branch, f, l);
+      staffs.push(tempStaff);
+    }
+    return staffs;
   }
 
   setParcel() {
@@ -336,6 +371,82 @@ class SQLCover {
       TAK: takw / tak,
       STN: stnw / stn,
       PRE: prew / pre
+    };
+    return data;
+  }
+
+  getCarPerBranch() {
+    var cars = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    for (let i = 0; i < this.car_table.length; i++) {
+      var car = this.car_table[i];
+      if (car.getCarBranchID() === "2000") {
+        cars[0] = 1 + cars[0];
+      } else if (car.getCarBranchID() === "2001") {
+        cars[1] = 1 + cars[1];
+      } else if (car.getCarBranchID() === "2002") {
+        cars[2] = 1 + cars[2];
+      } else if (car.getCarBranchID() === "2003") {
+        cars[3] = 1 + cars[3];
+      } else if (car.getCarBranchID() === "2004") {
+        cars[4] = 1 + cars[4];
+      } else if (car.getCarBranchID() === "2005") {
+        cars[5] = 1 + cars[5];
+      } else if (car.getCarBranchID() === "2006") {
+        cars[6] = 1 + cars[6];
+      } else if (car.getCarBranchID() === "2007") {
+        cars[7] = 1 + cars[7];
+      } else if (car.getCarBranchID() === "2008") {
+        cars[8] = 1 + cars[8];
+      }
+    }
+    const data = {
+      ChiangRai: cars[0],
+      Bangkok: cars[1],
+      Nan: cars[2],
+      Chonburi: cars[3],
+      Kanchanaburi: cars[4],
+      Yala: cars[5],
+      Nonthaburi: cars[6],
+      Krabi: cars[7],
+      Tak: cars[8]
+    };
+    return data;
+  }
+
+  getStaffsPerBranch() {
+    var staffs = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    for (let i = 0; i < this.staff_table.length; i++) {
+      var staff = this.staff_table[i];
+      if (staff.getStaffBranchID() === "3000") {
+        staffs[0] = 1 + staffs[0];
+      } else if (staff.getStaffBranchID() === "3001") {
+        staffs[1] = 1 + staffs[1];
+      } else if (staff.getStaffBranchID() === "3002") {
+        staffs[2] = 1 + staffs[2];
+      } else if (staff.getStaffBranchID() === "3003") {
+        staffs[3] = 1 + staffs[3];
+      } else if (staff.getStaffBranchID() === "3004") {
+        staffs[4] = 1 + staffs[4];
+      } else if (staff.getStaffBranchID() === "3005") {
+        staffs[5] = 1 + staffs[5];
+      } else if (staff.getStaffBranchID() === "3006") {
+        staffs[6] = 1 + staffs[6];
+      } else if (staff.getStaffBranchID() === "3007") {
+        staffs[7] = 1 + staffs[7];
+      } else if (staff.getStaffBranchID() === "3008") {
+        staffs[8] = 1 + staffs[8];
+      }
+    }
+    const data = {
+      ChiangRai: staffs[0],
+      Bangkok: staffs[1],
+      Nan: staffs[2],
+      Chonburi: staffs[3],
+      Kanchanaburi: staffs[4],
+      Yala: staffs[5],
+      Nonthaburi: staffs[6],
+      Krabi: staffs[7],
+      Tak: staffs[8]
     };
     return data;
   }
