@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Bar } from "react-chartjs-2";
-import Title from "./Title";
+import Title from "../Title";
 
-export default class ServiceChart extends Component {
+export default class YearlyServiceHistogram extends Component {
 	constructor(props) {
 		super(props);
 		const { charts } = this.props;

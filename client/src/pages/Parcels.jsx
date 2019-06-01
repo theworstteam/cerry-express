@@ -1,5 +1,5 @@
 import React from "react";
-import ParcelContainer from "../components/ParcelContainer";
+import ParcelContainer from "../components/parcel/ParcelContainer";
 
 export default function Parcels() {
 	return (

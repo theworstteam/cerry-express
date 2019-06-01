@@ -1,8 +1,9 @@
+
 import React, { Component } from "react";
 import { Pie } from "react-chartjs-2";
-import Title from "./Title";
+import Title from "../Title";
 
-export default class AvgWeight extends Component {
+export default class YearlyWeightAmount extends Component {
 	constructor(props) {
 		super(props);
 		const { charts } = this.props;

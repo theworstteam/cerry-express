@@ -7,7 +7,6 @@ const TranscationDate = require("./TransactionDate");
 class SQLCover {
   constructor(fact, parcel, date, location, branch) {
     this.temp_f = fact;
-    console.log(this.temp_f);
     this.temp_p = parcel;
     this.temp_d = date;
     this.temp_l = location;

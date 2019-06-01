@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Bar } from "react-chartjs-2";
 
-class WeightHistogram extends Component {
+export default class WeightHistogram extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -45,4 +45,3 @@ class WeightHistogram extends Component {
 	}
 }
 
-export default WeightHistogram;
