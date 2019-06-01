@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Bar } from "react-chartjs-2";
-import Title from "./Title";
+import Title from "../Title";
 
 export default class LocationHistogram extends Component {
 	constructor(props) {

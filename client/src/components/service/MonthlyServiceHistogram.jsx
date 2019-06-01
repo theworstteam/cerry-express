@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Bar } from "react-chartjs-2";
-import Title from '../components/Title'
+import Title from '../Title'
 
-class ServiceHistogram extends Component {
+export default class MonthlyServiceHistogram extends Component {
 	constructor(props) {
 		super(props);
 		const {
@@ -16,7 +16,6 @@ class ServiceHistogram extends Component {
 			Taka,
 			Yala,
 		} = this.props.histogram;
-		console.log(Bangkok);
 		this.state = {
 			labels: [
 				"Bangkok",
@@ -29,7 +28,6 @@ class ServiceHistogram extends Component {
 				"Taka",
 				"Yala",
 			],
-
 			datasets: [
 				{
 					label: this.props.name,
@@ -66,4 +64,3 @@ class ServiceHistogram extends Component {
 	}
 }
 
-export default ServiceHistogram;

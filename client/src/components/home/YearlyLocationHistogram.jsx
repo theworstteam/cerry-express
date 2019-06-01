@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import { Bar } from "react-chartjs-2";
-import Title from "./Title";
+import Title from "../Title";
 
-export default class LocationChart extends Component {
+export default class YearlyLocationHistogram extends Component {
 	constructor(props) {
 		super(props);
-		const { charts } = this.props;
 		this.state = {
 			labels: [
 				"Bangkok",

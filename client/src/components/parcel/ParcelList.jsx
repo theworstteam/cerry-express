@@ -1,6 +1,6 @@
 import React from "react";
-import PieChart from "./PieChart";
-import Title from "./Title";
+import ParcelChart from "./ParcelChart";
+import Title from "../Title";
 
 export default function PieChartList({ charts }) {
 	return (
@@ -8,7 +8,7 @@ export default function PieChartList({ charts }) {
 			<Title name='Pie Chart' />
 			<div className='parcel-center'>
 				{charts.map(item => {
-					return <PieChart key={item.id} charts={item} />;
+					return <ParcelChart key={item.id} charts={item} />;
 				})}
 			</div>
 		</>
