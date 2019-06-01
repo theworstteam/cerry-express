@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 :root {
-  --primaryColor: #a79277;
+  --primaryColor: #F7D679;
   --mainWhite: #fff;
   --offWhite: #f7f7f7;
   --mainBlack: #222;
@@ -93,6 +93,8 @@ h6 {
   top: 0;
   left: 0;
   width: 100%;
+  height: 75px;
+
   padding: 0.75rem 2rem;
   background: var(--offWhite);
   z-index: 1;
@@ -159,10 +161,18 @@ h6 {
 
 /* Title */
 .section-title {
+  padding-top: 30px;
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 .section-title h4 {
+  font-size: 2rem;
+  letter-spacing: var(--mainSpacing);
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+  padding-top:2rem 
+}
+.section-title h3 {
   font-size: 2rem;
   letter-spacing: var(--mainSpacing);
   text-transform: capitalize;
@@ -343,7 +353,7 @@ h6 {
 .roomslist {
   padding: 5rem 0;
 }
-.roomslist-center {
+.parcel-center {
   width: 80vw;
   margin: 0 auto;
   display: grid;
@@ -416,3 +426,38 @@ h6 {
   }
 }
 /* end of rooms fitler*/
+
+.center-histogram{
+  margin: 0 150px;
+  padding-top: 100px;
+
+}
+
+.home-center{
+  margin: 70px 0 0 640px; 
+  padding-bottom: 50px;
+
+}
+
+.badge {
+  height: 100px;
+  width: 400px;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  background: #F7D679;
+}
+
+.year-font{
+  font-family: 'Helvetica Neue';
+  font-size: 60px;
+  padding-top: 25px;
+}
+
+.set-font{
+    text-align: center;
+}
+
+.set-title-histogram{
+  padding-top: 2000px;
+}

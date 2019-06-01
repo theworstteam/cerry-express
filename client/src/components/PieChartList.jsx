@@ -1,25 +1,16 @@
-import React from 'react'
-import PieChart from './PieChart'
+import React from "react";
+import PieChart from "./PieChart";
+import Title from "./Title";
 
-
-export default function PieChartList({charts}) {
-	console.log(Object.keys(charts).length)
-    if(charts === 0){
-        return (
-			<div className='empty-search'>
-				<h3>
-					Unfortunately no pie chart left
-				</h3>
+export default function PieChartList({ charts }) {
+	return (
+		<>
+			<Title name='Pie Chart' />
+			<div className='parcel-center'>
+				{charts.map(item => {
+					return <PieChart key={item.id} charts={item} />;
+				})}
 			</div>
-		    );
-    }
-    return (
-			<section className='roomslist'>
-				<div className='roomslist-center'>
-					{charts.map(item => {
-						return <PieChart key={item.id} charts={item} />;
-                    })}
-				</div>
-			</section>
-		);
+		</>
+	);
 }

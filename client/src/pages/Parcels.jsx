@@ -1,13 +1,10 @@
-import React from 'react'
+import React from "react";
+import ParcelContainer from "../components/ParcelContainer";
 
-const Parcels = () => {
+export default function Parcels() {
 	return (
-		<>
-
-        </>
+		<div>
+			<ParcelContainer />
+		</div>
 	);
-};
-
-export default Parcels;
-
-
+}

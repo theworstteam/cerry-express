@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { FaAlignRight } from "react-icons/fa";
-// import logo from "../images/logo.png";
+import logo from "../images/logo.png";
 import { IoMdCube, IoIosHome } from "react-icons/io";
 import { Link } from "react-router-dom";
 
@@ -18,7 +18,7 @@ export default class Navbar extends Component {
 				<div className='nav-center'>
 					<div className='nav-header'>
 						<Link to='/'>
-							Cerry Express
+							<img src={logo} />
 						</Link>
 						<button
 							type='button'
@@ -38,9 +38,21 @@ export default class Navbar extends Component {
 							</Link>
 						</li>
 						<li>
-							<Link to='/parcels'>
+							<Link to='/parcel'>
 								<IoMdCube className='nav-icon' />
 								Parcel
+							</Link>
+						</li>
+						<li>
+							<Link to='/service'>
+								<IoMdCube className='nav-icon' />
+								Service
+							</Link>
+						</li>
+						<li>
+							<Link to='/location'>
+								<IoMdCube className='nav-icon' />
+								Location
 							</Link>
 						</li>
 					</ul>
