@@ -1,8 +1,7 @@
 import React from "react";
 import { ParcelConsumer } from "../context";
 import Loading from "../components/Loading"
-import Histogram from '../components/Histogram'
-import Title from '../components/Title'
+import ServiceList from "../components/ServiceList"
 
 
 export default function Service() {
@@ -20,8 +19,7 @@ export default function Service() {
 					console.log(monthly_service);
 					return (
 						<div>
-							<Title name='Histogram' />
-							<Histogram histogram={monthly_service} name="Average"/>
+							<ServiceList histogram={monthly_service}/>
 						</div>
 					);
 				}}

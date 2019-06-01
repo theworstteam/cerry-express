@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Bar } from "react-chartjs-2";
-import Title from "./Title";
 
-class Histogram extends Component {
+class WeightHistogram extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -22,7 +21,7 @@ class Histogram extends Component {
 			],
 			datasets: [
 				{
-					label: "Avg Weight per Month",
+					label: this.props.name,
 					data: this.props.histogram.map(item => item.Average),
 					backgroundColor: "#F7D679",
 				},
@@ -46,4 +45,4 @@ class Histogram extends Component {
 	}
 }
 
-export default Histogram;
+export default WeightHistogram;
