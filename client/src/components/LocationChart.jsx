@@ -2,33 +2,28 @@ import React, { Component } from "react";
 import { Pie } from "react-chartjs-2";
 import Title from "./Title";
 
-class PieChart extends Component {
+export default class Location extends Component {
 	constructor(props) {
 		super(props);
-		const {charts} = this.props;
+		const { charts } = this.props;
 		this.state = {
 			labels: [
-				"January",
-				"February",
-				"March",
-				"April",
-				"May",
-				"June",
-				"July",
-				"August",
-				"September",
-				"October",
-				"November",
-				"December",
+				"BKK",
+				"CMI",
+				"KBI",
+				"NBI",
+				"PKT",
+				"PRE",
+				"STI",
+				"STN",
+				"TAK",
+
 			],
 			datasets: [
 				{
-					data: charts.map(item => item.EMS + item.REG),
+					data: [3,4,5,6,5,3,8,1,1],
 					backgroundColor: [
 						"#F7D679",
-						"",
-						"",
-						"",
 						"",
 						"",
 						"",
@@ -45,9 +40,9 @@ class PieChart extends Component {
 	render() {
 		return (
 			<div>
-				<Title name="Total parcels per month"/>
+				<Title name='Avg weight per month' />
 				<Pie
-					height='75%'
+					height='90%'
 					data={{
 						labels: this.state.labels,
 						datasets: this.state.datasets,
@@ -59,4 +54,3 @@ class PieChart extends Component {
 	}
 }
 
-export default PieChart;
