@@ -6,26 +6,25 @@ export default class YearlySendTypeChart extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			ems:"",
-			reg:"",
 			labels: ["EMS", "REG"],
 			datasets: [
 				{
-					data: [7,9],
+					data: [],
 					backgroundColor: ["#F7D679", ""],
 				},
 			],
 		};
 	}
-	componentDidMount(){
-		const { charts } = this.props;
-		for (let index = 0; index < charts.length; index++) {
-			console.log(charts[index].EMS)
-		}
-		let result = charts.reduce((a, c) => a + c[Object.keys(c)], 0);
-			console.log(this.state.ems)
-	}
 	render() {
+		const { charts } = this.props;
+		let sumEms = 0;
+		let sumReg = 0;
+		for (let index = 0; index < charts.length; index++) {
+			sumEms += charts[index].EMS;
+			sumReg += charts[index].REG;
+		}
+		this.state.datasets[0].data = [sumEms,sumReg]
+
 		return (
 			<div>
 				<Title name='Send Type' />
@@ -41,4 +40,3 @@ export default class YearlySendTypeChart extends Component {
 		);
 	}
 }
-

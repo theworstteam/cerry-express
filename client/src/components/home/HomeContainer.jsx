@@ -25,10 +25,10 @@ export default function HomeContainer() {
 				return (
 					<div className='parcel-center'>
 						<YearlySendTypeChart charts={average_parcel} />
-						<YearlyLocationHistogram charts={average_location} />
-						<YearlyServiceHistogram charts={average_service} />
-						<YearlyWeightLocationHistogram charts={average_wl} />
-						<YearlyWeightAmount charts={average_weight} /> 
+						<YearlyLocationHistogram histogram={average_location} />
+						<YearlyServiceHistogram histogram={average_service} />
+						<YearlyWeightLocationHistogram histogram={average_wl} />
+						<YearlyWeightAmount data={average_weight} /> 
 					</div>
 				);
 			}}

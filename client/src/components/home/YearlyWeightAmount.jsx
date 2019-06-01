@@ -5,8 +5,8 @@ import Title from "../Title";
 export default class YearlyWeightAmount extends Component {
 	
 	render() {
-		const { charts } = this.props;
-		let avg = charts.map(item => item.Average)
+		const { data } = this.props;
+		let avg = data.map(item => item.Average)
 		let sum = avg.reduce((sum, number) => {
 			return sum + number;
 		}, 0);
