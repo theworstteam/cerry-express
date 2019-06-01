@@ -33,7 +33,6 @@ class Histogram extends Component {
 		
 		return (
 			<div className='center-histogram'>
-				<Title name='Histogram' />
 				<Bar
 					height='50%'
 					data={{

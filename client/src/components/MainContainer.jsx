@@ -5,6 +5,7 @@ import SendTypeChart from "./SendTypeChart";
 import AvgWeightChart from './AvgWeightChart'
 import LocationChart from './LocationChart'
 import ServiceChart from './ServiceChart'
+import WeightLocationChart from './WeightLocationChart'
 
 export default function MainContainer() {
 	return (
@@ -22,19 +23,20 @@ export default function MainContainer() {
 				if (loading) {
 					return <Loading name='Parcel Data' />;
 				}
-				console.log(monthly_weight)
+				console.log(monthly_parcel)
                 console.log(monthly_location)
                 console.log(monthly_service)
-                console.log(monthly_wl)
+				console.log(monthly_wl)
+				console.log(monthly_weight);
 				return (
-				<div className="parcel-center">
-                    <SendTypeChart charts={monthly_parcel}/>
-                    <AvgWeightChart charts={monthly_weight}/>
-					<LocationChart charts={monthly_location}/>
-                    <ServiceChart charts={monthly_service}/>
-                    {/* <TotalParcelChart charts={monthly_wl}/> */}
-				</div>
-				)
+					<div className='parcel-center'>
+						<SendTypeChart charts={monthly_parcel} />
+						<LocationChart charts={monthly_location} />
+						<ServiceChart charts={monthly_service} />
+						<WeightLocationChart charts={monthly_wl} />
+						<AvgWeightChart charts={monthly_weight} />
+					</div>
+				);
 			}}
 		</ParcelConsumer>
 	);

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Pie } from "react-chartjs-2";
 import Title from "./Title";
 
-export default class SendType extends Component {
+export default class SendTypeChart extends Component {
 	constructor(props) {
 		super(props);
 		const { charts } = this.props;
@@ -12,7 +12,7 @@ export default class SendType extends Component {
 			labels: ["EMS", "REG"],
 			datasets: [
 				{
-					data: [11,134],
+					data: [7,9],
 					backgroundColor: ["#F7D679", ""],
 				},
 			],
@@ -31,7 +31,7 @@ export default class SendType extends Component {
 			<div>
 				<Title name='Total Send Type' />
 				<Pie
-					height='90%'
+					height='95%'
 					data={{
 						labels: this.state.labels,
 						datasets: this.state.datasets,

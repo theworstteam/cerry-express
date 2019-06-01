@@ -28,7 +28,9 @@ export default class Navbar extends Component {
 						</button>
 					</div>
 					<ul
-						className={this.state.isOpen ? "nav-links show-nav" : "nav-links"}>
+						className={
+							this.state.isOpen ? "nav-links show-nav" : "nav-links"
+						}>
 						<li>
 							<Link to='/'>
 								<IoIosHome className='nav-icon' />
@@ -36,9 +38,21 @@ export default class Navbar extends Component {
 							</Link>
 						</li>
 						<li>
-							<Link to='/parcels'>
+							<Link to='/parcel'>
 								<IoMdCube className='nav-icon' />
 								Parcel
+							</Link>
+						</li>
+						<li>
+							<Link to='/service'>
+								<IoMdCube className='nav-icon' />
+								Service
+							</Link>
+						</li>
+						<li>
+							<Link to='/location'>
+								<IoMdCube className='nav-icon' />
+								Location
 							</Link>
 						</li>
 					</ul>

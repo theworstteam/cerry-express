@@ -10,8 +10,8 @@ export default class AvgWeight extends Component {
 		render() {
 			return (
 				<div>
-					<Title name='Avg weight per month' />
-					
+					<Title name='Average weight' />
+					<h2>648</h2>
 				</div>
 		);
 	}

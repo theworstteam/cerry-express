@@ -17,7 +17,8 @@ export default function ParcelContainer() {
 				return (
 					<>
 						<PieChartList charts={monthly_parcel} />
-						<Histogram histogram={monthly_weight} />
+						<Title name="Histogram"/>
+						<Histogram histogram={monthly_weight} name="Average weight per month" />
 					</>
 				);
 			}}

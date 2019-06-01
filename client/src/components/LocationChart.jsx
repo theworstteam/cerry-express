@@ -1,27 +1,26 @@
 import React, { Component } from "react";
-import { Pie } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import Title from "./Title";
 
-export default class Location extends Component {
+export default class LocationChart extends Component {
 	constructor(props) {
 		super(props);
 		const { charts } = this.props;
 		this.state = {
 			labels: [
-				"BKK",
-				"CMI",
-				"KBI",
-				"NBI",
-				"PKT",
-				"PRE",
-				"STI",
-				"STN",
-				"TAK",
-
+				"Bangkok",
+				"ChiangMai",
+				"Kanchanaburi",
+				"Nonthaburi",
+				"Phuket",
+				"Prae",
+				"Sukhothai",
+				"Stun",
+				"Tak",
 			],
 			datasets: [
 				{
-					data: [3,4,5,6,5,3,8,1,1],
+					data: [2,2,2,2,2,2,2,2,1],
 					backgroundColor: [
 						"#F7D679",
 						"",
@@ -40,9 +39,9 @@ export default class Location extends Component {
 	render() {
 		return (
 			<div>
-				<Title name='Avg weight per month' />
-				<Pie
-					height='90%'
+				<Title name='Location' />
+				<Bar
+					height='130%'
 					data={{
 						labels: this.state.labels,
 						datasets: this.state.datasets,

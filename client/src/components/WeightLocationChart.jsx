@@ -2,12 +2,22 @@ import React, { Component } from "react";
 import { Bar } from "react-chartjs-2";
 import Title from "./Title";
 
-export default class ServiceChart extends Component {
+export default class WeightLocationChart extends Component {
 	constructor(props) {
 		super(props);
 		const { charts } = this.props;
 		this.state = {
-			labels: ["Bangkok", "ChiangRai","Chonburi", "Kanchanaburi", "Krabi", "Nan", "Nonthaburi", "Taka", "Yala"],
+			labels: [
+				"Bangkok",
+				"ChiangMai",
+				"Kanchanaburi",
+				"Nonthaburi",
+				"Phuket",
+				"Prae",
+				"Sukhothai",
+				"Stun",
+				"Tak",
+			],
 			datasets: [
 				{
 					data: [3, 4, 5, 6, 5, 3, 8, 1, 1],
@@ -19,7 +29,7 @@ export default class ServiceChart extends Component {
 	render() {
 		return (
 			<div>
-				<Title name='Service' />
+				<Title name='Average Weight in Location' />
 				<Bar
 					height='130%'
 					data={{
