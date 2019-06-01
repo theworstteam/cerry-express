@@ -11,9 +11,11 @@ export default class AvgWeight extends Component {
 			return (
 				<div>
 					<Title name='Average weight' />
-					<h2>648</h2>
+					<h2 className='set-font'>
+						648
+					</h2>
 				</div>
-		);
+			);
 	}
 }
 

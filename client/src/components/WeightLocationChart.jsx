@@ -29,7 +29,7 @@ export default class WeightLocationChart extends Component {
 	render() {
 		return (
 			<div>
-				<Title name='Average Weight in Location' />
+				<Title name='WeightLocation' />
 				<Bar
 					height='130%'
 					data={{

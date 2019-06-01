@@ -433,17 +433,17 @@ h6 {
 }
 
 .home-center{
-  margin: 80px 0 0 1000px; 
+  margin: 70px 0 0 640px; 
+  padding-bottom: 50px;
 
 }
 
 .badge {
-  height: 250px;
-  width: 250px;
+  height: 100px;
+  width: 400px;
   display: table-cell;
   text-align: center;
   vertical-align: middle;
-  border-radius: 50%; /* may require vendor prefixes */
   background: #F7D679;
 }
 
@@ -451,4 +451,8 @@ h6 {
   font-family: 'Helvetica Neue';
   font-size: 60px;
   padding-top: 25px;
+}
+
+.set-font{
+    text-align: center;
 }

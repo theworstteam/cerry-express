@@ -23,11 +23,6 @@ export default function MainContainer() {
 				if (loading) {
 					return <Loading name='Parcel Data' />;
 				}
-				console.log(monthly_parcel)
-                console.log(monthly_location)
-                console.log(monthly_service)
-				console.log(monthly_wl)
-				console.log(monthly_weight);
 				return (
 					<div className='parcel-center'>
 						<SendTypeChart charts={monthly_parcel} />
