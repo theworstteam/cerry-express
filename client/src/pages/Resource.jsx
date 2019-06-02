@@ -16,8 +16,8 @@ export default function Resource() {
 					}
 					return (
 						<div>
-							<ResourceHistogram histogram={branch_car} name='total car per branch' title='Car' />
-							<ResourceHistogram histogram={branch_car} name='total staff per branch' title='Staff' />
+							<ResourceHistogram histogram={branch_car[0]} name='total car per branch' title='Car' />
+							<ResourceHistogram histogram={branch_car[0]} name='total staff per branch' title='Staff' />
 						</div>
 					);
 				}}

@@ -5,6 +5,7 @@ import Title from "../Title";
 export default class ResourceHistogram extends Component {
 	constructor(props) {
 		super(props);
+		// console.log(this.props.histogram[0])
 		const {
 			Bangkok,
 			ChiangRai,
