@@ -4,6 +4,8 @@ const express = require("express");
 const mongodb = require("mongodb");
 const SQLCover = require("../backend/SQLCover");
 var sql;
+var currentDateID;
+var currentParcelID;
 const router = express.Router();
 
 //Get requested data.
@@ -76,39 +78,55 @@ router.get("/average/weight-location/:month", async (req, res) => {
   res.send(data);
 });
 
+// Post parcel into the database.
+// /api/delivery/parcel/<weight>/<firstname>/<lastname>/<EMS/REG>
+router.post("/parcel/:weight/:firstname/:lastname/:type", async (req, res) => {
+  const db = await loadData("parcel");
+  const pmax = sql.getParcelMax();
+  var parcel_id = parseInt(pmax) + 1;
+  currentParcelID = parcel_id + "";
+  const parcel = {
+    _id: currentParcelID,
+    weight: req.params.weight,
+    first_name: req.params.firstname,
+    last_name: req.params.lastname
+  };
+  res.send(await db.insert(parcel));
+});
+
+// Post transaction-date into the database.
+// /api/delivery/transaction-date/<MMDDYY>/<DD>/<MM>/<YY>/<0-15>
 router.post(
-  "/parcel/:weight/:firstname/:lastname/:type/:dateid/:day/:month/:year/:duration",
+  "/transaction-date/:dateid/:day/:month/:year/:duration",
   async (req, res) => {
-    var db = await loadData("parcel");
-    const pmax = sql.getParcelMax();
-    const tmax = sql.getTransMax();
-    const parcel = {
-      _id: pmax + 1,
-      weight: req.params.weight,
-      first_name: req.params.firstname,
-      last_name: req.params.lastname
-    };
-    res.send(await db.post(parcel));
-    db = await loadData("transaction_date");
+    const db2 = await loadData("transaction_date");
+    currentDateID = req.params.dateid + "";
     const date = {
-      _id: req.params.dateid,
+      _id: currentDateID,
       day: req.params.day,
       month: req.params.month,
       year: req.params.year,
       duration: req.params.duration
     };
-    res.send(await db.post(date));
-    db = loadData("transaction");
-    const trans = {
-      _id: tmax + 1,
-      parcel: parcel["_id"],
-      transaction_date: date["_id"],
-      branch: "100",
-      location: "BKK"
-    };
-    res.send(await db.post(trans));
+    res.send(await db2.insert(date));
   }
 );
+
+// Post transaction into the database.
+// /api/delivery/transaction/<100-108>/<NAN>
+router.post("/transaction/:branch/:location", async (req, res) => {
+  const db3 = await loadData("transaction");
+  const tmax = sql.getTransMax();
+  var trans_id = parseInt(tmax) + 1;
+  const trans = {
+    _id: trans_id + "",
+    parcel: currentParcelID,
+    transaction_date: currentDateID,
+    branch: req.params.branch,
+    location: req.params.location
+  };
+  res.send(await db3.insert(trans));
+});
 
 //Open connection with the database, function returns client for further interaction.
 async function loadData(collection) {
