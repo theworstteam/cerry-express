@@ -8,19 +8,51 @@ Our application purpose is for analyzing data of our transaction orders. Focused
 
 ## Installation
 
-1. Clone the repository and redirect to the directory location. 
+1. Open the Terminal and type the following command: 
+
 ```
 $ git clone https://github.com/theworstteam/cerry-express.git
+```
+
+2. Go to the directory.
+
+```
 $ cd cerry-express
 ```
-2. Install using npm then start the backend.(Ask from the developer for the .env files)
+
+3. Install dependencies using npm. (Ask from the developer for the ***.env*** files)
+
 ```
 $ npm install
+```
+
+4. Start the backend server.
+
+```
 $ npm run dev
 ```
-3. Click the link below to start the frontend.
 
-Link
+5. To be able to run, you have to follow steps provided in link below. 
+
+    [Frontend of Cerry Express](https://github.com/theworstteam/cerry-express-frontend)
+
+## Technology
+
+- Backend : ``` Express.js```
+- Frontend : ``` React.js ```
+- Database : ``` MongoDB```
+
+## Team Members
+ 
+| GitHub      | Name                      | Student No. | Roles     |
+| ----------- | ------------------------- | ----------- | --------- |
+| bankeez     | Piyawat Setthitikun       | 6010545854  | Developer |
+| kimvcp      | Vichaphol Thamsuthikul    | 6010545897  | Developer |
+| Kittinske15 | Kittin Vatabutr           | 6010546630  | Developer |
+| poom201211  | Thanapoom Rattanathumawat | 6010546672  | Developer |
+| f17samak    | François Xavier Samaké    | 6110046132  | Developer |
+
+
 
 
 
