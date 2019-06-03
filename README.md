@@ -1,68 +1,59 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Cerry Express
 
-## Available Scripts
+Our application purpose is for analyzing data of our transaction orders. Focused towards managers and admins for analysis. How could this data be useful? Well, it could visualize the possibilities of future years.  
 
-In the project directory, you can run:
+## Prerequisites
 
-### `npm start`
+1. Node.js version 3 or above
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Installation
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+1. Open the Terminal and type the following command: 
 
-### `npm gtest`
+```
+$ git clone https://github.com/theworstteam/cerry-express.git
+```
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Go to the directory.
 
-### `npm run build`
+```
+$ cd cerry-express
+```
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Install dependencies using npm. (Ask from the developer for the ***.env*** files)
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+```
+$ npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. Start the backend server.
 
-### `npm run eject`
+```
+$ npm run dev
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+5. To be able to run, you have to follow steps provided in link below. 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    [Frontend of Cerry Express](https://github.com/theworstteam/cerry-express-frontend)
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Technology
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Backend : ``` Express.js```
+- Frontend : ``` React.js ```
+- Database : ``` MongoDB```
 
-## Learn More
+## Team Members
+ 
+| GitHub      | Name                      | Student No. | Roles     |
+| ----------- | ------------------------- | ----------- | --------- |
+| bankeez     | Piyawat Setthitikun       | 6010545854  | Developer |
+| kimvcp      | Vichaphol Thamsuthikul    | 6010545897  | Developer |
+| Kittinske15 | Kittin Vatabutr           | 6010546630  | Developer |
+| poom201211  | Thanapoom Rattanathumawat | 6010546672  | Developer |
+| f17samak    | François Xavier Samaké    | 6110046132  | Developer |
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
