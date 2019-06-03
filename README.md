@@ -52,6 +52,14 @@ $ npm run dev
  poom201211  | Thanapoom Rattanathumawat | 6010546672  | Developer 
  f17samak    | François Xavier Samaké    | 6110046132  | Developer 
 
+  
+
+ GitHub       |           Name           |               Roles
+-------------|--------------------------|-------------------------------------
+bankeez      |   Piyawat Setthitikun    |       Scrum Master, Developer
+kimvcp       |   Vichaphol Thamsuthikul |              Developer
+Kittinske15  |   Kittin Vatabutr        |              Developer
+
 
 
 
