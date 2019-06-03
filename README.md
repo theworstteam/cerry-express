@@ -44,7 +44,7 @@ $ npm run dev
 
 ## Team Members
  
- GitHub      | Name                      | Student No. | Roles     
+   GitHub    |           Name            | Student No. |   Roles     
  ----------- | ------------------------- | ----------- | --------- 
  bankeez     | Piyawat Setthitikun       | 6010545854  | Developer 
  kimvcp      | Vichaphol Thamsuthikul    | 6010545897  | Developer 
@@ -52,13 +52,13 @@ $ npm run dev
  poom201211  | Thanapoom Rattanathumawat | 6010546672  | Developer 
  f17samak    | François Xavier Samaké    | 6110046132  | Developer 
 
-  
-
- GitHub       |           Name           |               Roles
--------------|--------------------------|-------------------------------------
-bankeez      |   Piyawat Setthitikun    |       Scrum Master, Developer
-kimvcp       |   Vichaphol Thamsuthikul |              Developer
-Kittinske15  |   Kittin Vatabutr        |              Developer
+| GitHub   | Name                   | Student No. | Roles     |
+| -------- | ---------------------- | ----------- | --------- |
+| bankeez  | Piyawat Setthitikun    | 6010545854  | Developer |
+| kimvcp   | Vichaphol Thamsuthikul | 6010545897  | Developer |
+| Kittinske15 | Kittin Vatabutr           | 6010546630  | Developer |
+| poom201211  | Thanapoom Rattanathumawat | 6010546672  | Developer |
+| f17samak    | François Xavier Samaké    | 6110046132  | Developer |
 
 
 
