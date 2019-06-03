@@ -8,6 +8,7 @@ export default class AddParcel extends Component {
 			lastName: "",
 			weight: "",
 			sendType: "",
+			location: "",
 		},
 	};
 	handleFirstName(e) {
@@ -46,13 +47,29 @@ export default class AddParcel extends Component {
 			},
 		}));
 	}
+	handleLocation(e) {
+		let value = e.target.value;
+		this.setState(prevState => ({
+			formControl: {
+				...prevState.formControl,
+				location: value,
+			},
+		}));
+	}
 
 	handleSubmit(event) {
-		const { firstName, lastName, sendType, weight } = this.state.formControl;
+		const {
+			firstName,
+			lastName,
+			sendType,
+			weight,
+			location,
+		} = this.state.formControl;
 		console.log(firstName);
 		console.log(lastName);
 		console.log(sendType);
 		console.log(weight);
+		console.log(location)
 		const rand = Math.floor(Math.random() * Math.floor(15));
 		var date = new Date().getDate();
 		var month = new Date().getMonth() + 1;
@@ -80,7 +97,7 @@ export default class AddParcel extends Component {
 				0 +
 				date +
 				"/" +
-				month +
+				"May" +
 				"/" +
 				19 +
 				"/" +
@@ -89,12 +106,10 @@ export default class AddParcel extends Component {
 				method: "POST",
 			}
 		);
-		fetch(
-			"http://localhost:5000/transaction-date/" ,
-			{
-				method: "POST",
-			}
-		);
+		fetch("http://localhost:5000/transaction/" + 102 +"/"+ location, 
+		{
+			method: "POST",
+		});
 
 		event.preventDefault();
 	}
@@ -129,6 +144,15 @@ export default class AddParcel extends Component {
 							type='text'
 							name='sentType'
 							onChange={this.handleSendType.bind(this)}
+						/>
+					</h4>
+					<br />
+					<h4>
+						Location:
+						<input
+							type='text'
+							name='sentType'
+							onChange={this.handleLocation.bind(this)}
 						/>
 					</h4>
 					<br />
