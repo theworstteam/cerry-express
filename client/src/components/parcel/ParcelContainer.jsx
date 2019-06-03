@@ -23,7 +23,7 @@ export default function ParcelContainer() {
 						<Title name='Histogram' />
 						<WeightHistogram
 							histogram={average_weight}
-							name='Average weight per month'
+							name='average weight per month'
 						/>
 					</>
 				);

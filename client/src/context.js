@@ -9,6 +9,8 @@ class ParcelProvider extends Component {
         average_service: [],
         average_location: [],
         average_wl: [],
+        branch_car: [],
+        branch_staff: [],
         month: ['January','February','March','April','May','June','July','August','September','October','November','December'],
         loading: true,
     }
@@ -22,6 +24,8 @@ class ParcelProvider extends Component {
             this.queryAverageLocation(month[index])
             this.queryAverageWeightLocation(month[index])
         }
+        this.queryBranchCar()
+        this.queryBranchStaff()
         this.setState({
             loading:false
         })
@@ -54,6 +58,16 @@ class ParcelProvider extends Component {
         fetch('http://localhost:5000/api/delivery/average/weight-location/'+month)
         .then((data) => data.json())
         .then((res) => this.state.average_wl.push(res));
+    }
+    queryBranchCar = () =>{
+        fetch('http://localhost:5000/api/delivery/branch/car')
+        .then((data) => data.json())
+        .then((res) => this.state.branch_car.push(res));
+    }
+    queryBranchStaff = () =>{
+        fetch('http://localhost:5000/api/delivery/branch/staff')
+        .then((data) => data.json())
+        .then((res) => this.state.branch_staff.push(res));
     }
   
     

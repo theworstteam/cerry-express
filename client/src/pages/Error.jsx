@@ -6,7 +6,7 @@ export default function Error() {
 	return (
 		<>
 			<Title name='Error Page' />
-			<div className=''>
+			<div className='error-center'>
 				<Link to='/' className='btn-primary'>
 					return home
 				</Link>

@@ -13,7 +13,7 @@ export default class MonthlyServiceHistogram extends Component {
 			Krabi,
 			Nan,
 			Nonthaburi,
-			Taka,
+			Tak,
 			Yala,
 		} = this.props.histogram;
 		this.state = {
@@ -25,7 +25,7 @@ export default class MonthlyServiceHistogram extends Component {
 				"Krabi",
 				"Nan",
 				"Nonthaburi",
-				"Taka",
+				"Tak",
 				"Yala",
 			],
 			datasets: [
@@ -39,7 +39,7 @@ export default class MonthlyServiceHistogram extends Component {
 						Krabi,
 						Nan,
 						Nonthaburi,
-						Taka,
+						Tak,
 						Yala,
 					],
 					backgroundColor: "#F7D679",
