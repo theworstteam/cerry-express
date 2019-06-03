@@ -7,6 +7,7 @@ import Parcels from "./pages/Parcels"
 import Service from "./pages/Service"
 import Location from "./pages/Location"
 import Resource from './pages/Resource'
+import Input from './pages/Input'
 import Error from "./pages/Error"
 
 
@@ -21,6 +22,7 @@ class App extends Component {
           <Route exact path="/service/" component={Service}/>
           <Route exact path="/location/" component={Location}/>
           <Route exact path="/resource/" component={Resource}/>
+          <Route exact path="/input/" component={Input}/>
           <Route component={Error} />
         </Switch>
       </>
