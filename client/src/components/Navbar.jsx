@@ -69,7 +69,7 @@ export default class Navbar extends Component {
 						<li>
 							<Link to='/input'>
 								<IoMdAddCircleOutline className='nav-icon' />
-								Input
+								Add Parcel
 							</Link>
 						</li>
 					</ul>
