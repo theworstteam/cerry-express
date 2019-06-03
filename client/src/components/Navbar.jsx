@@ -67,7 +67,7 @@ export default class Navbar extends Component {
 							</Link>
 						</li>
 						<li>
-							<Link to='/input'>
+							<Link to='/addParcel'>
 								<IoMdAddCircleOutline className='nav-icon' />
 								Add Parcel
 							</Link>
