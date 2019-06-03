@@ -1,4 +1,4 @@
-# Cerry Express
+﻿# Cerry Express
 
 Our application purpose is for analyzing data of our transaction orders. Focused towards managers and admins for analysis. How could this data be useful? Well, it could visualize the possibilities of future years.  
 
@@ -14,13 +14,13 @@ Our application purpose is for analyzing data of our transaction orders. Focused
 $ git clone https://github.com/theworstteam/cerry-express.git
 ```
 
-2. Go to the directory.
+2. Go to the directory.(Ask the developer for the ***.env*** file. Then drag and drop it into the root of where "cerry-express" is located in your device.)
 
 ```
 $ cd cerry-express
 ```
 
-3. Install dependencies using npm. (Ask from the developer for the ***.env*** files)
+3. Install dependencies using npm.
 
 ```
 $ npm install
