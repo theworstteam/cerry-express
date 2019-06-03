@@ -1,5 +1,5 @@
 import React from "react";
-import MainContainer from "../components/MainContainer";
+import HomeContainer from "../components/home/HomeContainer";
 
 export default function Home() {
 	return (
@@ -9,7 +9,7 @@ export default function Home() {
 					<h2 class='year-font'>2019</h2>
 				</div>
 			</div>
-			<MainContainer />
+			<HomeContainer />
 		</div>
 	);
 }

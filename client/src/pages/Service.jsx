@@ -1,7 +1,7 @@
 import React from "react";
 import { ParcelConsumer } from "../context";
 import Loading from "../components/Loading"
-import ServiceList from "../components/ServiceList"
+import ServiceList from "../components/service/ServiceList"
 
 
 export default function Service() {
@@ -11,15 +11,14 @@ export default function Service() {
 				{value => {
 					const {
 						loading,
-						monthly_service,
+						average_service,
 					} = value;
 					if (loading) {
-						return <Loading name='Parcel Data' />;
+						return <Loading name='Service' />;
 					}
-					console.log(monthly_service);
 					return (
 						<div>
-							<ServiceList histogram={monthly_service}/>
+							<ServiceList histogram={average_service}/>
 						</div>
 					);
 				}}

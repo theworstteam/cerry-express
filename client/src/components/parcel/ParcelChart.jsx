@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Pie } from "react-chartjs-2";
-import Title from "./Title";
 
-class PieChart extends Component {
+export default class ParcelChart extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -34,4 +33,3 @@ class PieChart extends Component {
 	}
 }
 
-export default PieChart;

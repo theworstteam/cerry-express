@@ -1,7 +1,14 @@
 import React, { Component } from "react";
 import { FaAlignRight } from "react-icons/fa";
 import logo from "../images/logo.png";
-import { IoMdCube, IoIosHome } from "react-icons/io";
+import {
+	IoMdCube,
+	IoIosHome,
+	IoMdLocate,
+	IoMdBusiness,
+	IoMdAddCircleOutline,
+	IoIosWater,
+} from "react-icons/io";
 import { Link } from "react-router-dom";
 
 export default class Navbar extends Component {
@@ -28,9 +35,7 @@ export default class Navbar extends Component {
 						</button>
 					</div>
 					<ul
-						className={
-							this.state.isOpen ? "nav-links show-nav" : "nav-links"
-						}>
+						className={this.state.isOpen ? "nav-links show-nav" : "nav-links"}>
 						<li>
 							<Link to='/'>
 								<IoIosHome className='nav-icon' />
@@ -45,14 +50,26 @@ export default class Navbar extends Component {
 						</li>
 						<li>
 							<Link to='/service'>
-								<IoMdCube className='nav-icon' />
+								<IoMdBusiness className='nav-icon' />
 								Service
 							</Link>
 						</li>
 						<li>
 							<Link to='/location'>
-								<IoMdCube className='nav-icon' />
+								<IoMdLocate className='nav-icon' />
 								Location
+							</Link>
+						</li>
+						<li>
+							<Link to='/resource'>
+								<IoIosWater className='nav-icon' />
+								Resource
+							</Link>
+						</li>
+						<li>
+							<Link to='/input'>
+								<IoMdAddCircleOutline className='nav-icon' />
+								Input
 							</Link>
 						</li>
 					</ul>

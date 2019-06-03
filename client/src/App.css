@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 :root {
-  --primaryColor: #F7D679;
+  --primaryColor:#F7D679;
   --mainWhite: #fff;
   --offWhite: #f7f7f7;
   --mainBlack: #222;
@@ -22,6 +22,9 @@ body {
   background: var(--mainWhite);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   line-height: 1.4;
+}
+.inputcenter {
+  text-align: center
 }
 h1 {
   font-size: 3em;
@@ -110,7 +113,7 @@ h6 {
   outline: none;
 }
 .nav-icon {
-  font-size: 1.5rem;
+  font-size: 1.65rem;
   margin-right:8px;
   color: var(--primaryColor);
 }
@@ -126,7 +129,7 @@ h6 {
   padding: 1rem 0;
   color: var(--mainBlack);
   transition: var(--mainTransition);
-  text-align: center;
+  text-align: right;
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: var(--mainSpacing);
@@ -136,7 +139,7 @@ h6 {
 }
 
 .show-nav {
-  height: 100px;
+  height: 400px;
 }
 @media screen and (min-width: 768px) {
   .nav-btn {
@@ -460,4 +463,8 @@ h6 {
 
 .set-title-histogram{
   padding-top: 2000px;
+}
+
+.error-center{
+  text-align: center;
 }
