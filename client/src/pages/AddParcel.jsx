@@ -48,13 +48,49 @@ export default class AddParcel extends Component {
 	}
 
 	handleSubmit(event) {
-		const {firstName, lastName, sendType, weight} = this.state.formControl 
+		const { firstName, lastName, sendType, weight } = this.state.formControl;
 		console.log(firstName);
 		console.log(lastName);
 		console.log(sendType);
 		console.log(weight);
+		const rand = Math.floor(Math.random() * Math.floor(15));
+		var date = new Date().getDate();
+		var month = new Date().getMonth() + 1;
+
 		fetch(
-			"http://localhost:5000/api/delivery/parcel/"+weight+"/"+firstName+"/"+lastName+"/"+sendType,
+			"http://localhost:5000/api/delivery/parcel/" +
+				weight +
+				"/" +
+				firstName +
+				"/" +
+				lastName +
+				"/" +
+				sendType,
+			{
+				method: "POST",
+			}
+		);
+		fetch(
+			"http://localhost:5000/transaction-date/" +
+				0 +
+				date +
+				month +
+				19 +
+				"/" +
+				0 +
+				date +
+				"/" +
+				month +
+				"/" +
+				19 +
+				"/" +
+				rand,
+			{
+				method: "POST",
+			}
+		);
+		fetch(
+			"http://localhost:5000/transaction-date/" ,
 			{
 				method: "POST",
 			}
