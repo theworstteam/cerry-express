@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Title from "../components/Title";
-
 export default class AddParcel extends Component {
 	state = {
 		formControl: {
@@ -11,6 +10,10 @@ export default class AddParcel extends Component {
 			location: "",
 		},
 	};
+	componentDidMount() {
+		this.clearForm();
+	}
+
 	handleFirstName(e) {
 		let value = e.target.value;
 		this.setState(prevState => ({
@@ -56,7 +59,6 @@ export default class AddParcel extends Component {
 			},
 		}));
 	}
-
 	handleSubmit(event) {
 		const {
 			firstName,
@@ -65,12 +67,24 @@ export default class AddParcel extends Component {
 			weight,
 			location,
 		} = this.state.formControl;
-		console.log(firstName);
-		console.log(lastName);
-		console.log(sendType);
-		console.log(weight);
-		console.log(location)
-		const rand = Math.floor(Math.random() * Math.floor(15));
+		var months = [
+			"January",
+			"February",
+			"March",
+			"April",
+			"May",
+			"June",
+			"July",
+			"August",
+			"September",
+			"October",
+			"November",
+			"December",
+		];
+		var duration = Math.floor(Math.random() * 15) + 1;
+		function monthNumToName(monthnum) {
+			return months[monthnum - 1] || "";
+		}
 		var date = new Date().getDate();
 		var month = new Date().getMonth() + 1;
 
@@ -88,35 +102,53 @@ export default class AddParcel extends Component {
 			}
 		);
 		fetch(
-			"http://localhost:5000/transaction-date/" +
+			"http://localhost:5000/api/delivery/transaction-date/" +
 				0 +
 				date +
+				0 +
 				month +
 				19 +
 				"/" +
 				0 +
 				date +
 				"/" +
-				"May" +
+				monthNumToName(month) +
 				"/" +
 				19 +
 				"/" +
-				rand,
+				duration,
 			{
 				method: "POST",
 			}
 		);
-		fetch("http://localhost:5000/transaction/" + 102 +"/"+ location, 
-		{
-			method: "POST",
-		});
+		fetch(
+			"http://localhost:5000/api/delivery/transaction/" +
+				(Math.floor(Math.random() * 8) + 100) +
+				"/" +
+				location,
+			{
+				method: "POST",
+			}
+		);
 
+		alert("You have successfull added data");
+		this.clearForm();
 		event.preventDefault();
 	}
+	clearForm = () => {
+		document.getElementById("addForm").reset();
+		this.setState({
+			first_name: "",
+			lastName: "",
+			weight: "",
+			sendType: "",
+			location: "",
+		});
+	};
 
 	render() {
 		return (
-			<form onSubmit={this.handleSubmit.bind(this)}>
+			<form id='addForm' onSubmit={this.handleSubmit.bind(this)}>
 				<Title name='add parcel' />
 				<div className='inputcenter'>
 					<br />
@@ -126,6 +158,7 @@ export default class AddParcel extends Component {
 							type='text'
 							name='firstName'
 							onChange={this.handleFirstName.bind(this)}
+							placeholder='Input your first name'
 						/>
 					</h4>
 					<br />
@@ -135,6 +168,7 @@ export default class AddParcel extends Component {
 							type='text'
 							name='lastName'
 							onChange={this.handleLastName.bind(this)}
+							placeholder='Input your last name'
 						/>
 					</h4>
 					<br />
@@ -144,6 +178,7 @@ export default class AddParcel extends Component {
 							type='text'
 							name='sentType'
 							onChange={this.handleSendType.bind(this)}
+							placeholder='EMS or REG only'
 						/>
 					</h4>
 					<br />
@@ -153,6 +188,7 @@ export default class AddParcel extends Component {
 							type='text'
 							name='sentType'
 							onChange={this.handleLocation.bind(this)}
+							placeholder='Example BKK, NAN'
 						/>
 					</h4>
 					<br />
